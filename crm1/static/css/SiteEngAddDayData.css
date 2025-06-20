@@ -1,0 +1,75 @@
+
+
+.invisible{
+    visibility: hidden;
+}
+
+.submitbtn{
+    height: 4%;
+    border: 0px;
+    color: #ffffff;
+    background-color: #a8a8a8;
+}
+select{
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    background-color: transparent;
+    color: #008837;
+    border-bottom:1px solid #015099;
+}
+
+input[type="number"],input[type="number"]::-webkit-inner-spin-button{
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    background-color: transparent;
+    color: #008837;
+    border-bottom:1px solid #015099;
+    appearance: textfield;
+}
+
+#id_NoLabor, #id_NoHelp{
+    width: 100%;
+}
+#display {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10%;
+    /* margin-left: 2.5%; */
+    width: 100%;
+  }
+  
+  #display td, #display th {
+    border: 1px solid #000;
+    padding: 8px;
+  }
+
+  /* color for 1st tr */
+   
+  #display tr:nth-child(odd){background-color: #00883628;}
+  #display tr:nth-child(even){background-color: #01509928;}
+  #display tr th {
+    background-color: #7a7a7a;
+    color: white;
+}
+  /* #display tr:hover {background-color: rgb(255, 255, 255);} */
+  
+  #display th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+  }
+
+/* Media screen for desktop */
+@media screen and (min-width: 800px) {
+        #display {
+            width: 80%;
+            margin-left: 10%;
+        }
+        #display td, #display th {
+            font-size: large;
+            border: 1px solid #ddd;
+            padding: 1%;
+        }
+}

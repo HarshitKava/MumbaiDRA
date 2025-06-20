@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root Signature="{5DCBAC3B-D39C-497C-9BE8-744CBADD37AA}" NameMappingVersion="7" SaveImages="0">
+	<Storages Current="0">
+		<Child Name="Default Configuration" />
+	</Storages>
+	<Nodes Name="NameMapping" Key="{BE401E45-B2D6-4FBA-931A-C2117D5C51AD}">
+		<Children>
+			<Child Name="Sys" Key="{0AE3699D-A097-419F-9A9A-624A16AA9093}">
+				<Properties>
+					<Property Name="Name">
+						<Value Value="Sys" />
+					</Property>
+				</Properties>
+				<Children>
+					<Child Name="brave" Key="{5EF476A1-B304-4D86-9D29-06B1C65777D0}">
+						<Properties>
+							<Property Name="ProcessName">
+								<Value Value="brave" />
+							</Property>
+						</Properties>
+						<Children>
+							<Child Name="wndChrome_WidgetWin_1" Key="{FC940A0D-EB8F-4803-AE8E-4080736ACFE2}">
+								<Image FileName="-209192902" Left="-9" Top="-9" Right="1929" Bottom="1029" />
+								<TypeInfo Item0="{CCC03D43-1D68-477F-84BA-1C3A1EA611C4}" />
+								<Properties>
+									<Property Name="WndClass">
+										<Value Value="Chrome_WidgetWin_1" />
+									</Property>
+									<Property Name="WndCaption">
+										<Value Value="URC Construction - Brave" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="Chrome_RenderWidgetHostHWND" Key="{53773889-A30D-4368-8D96-567D5857498E}">
+										<Image FileName="2105375030" Left="0" Top="83" Right="1920" Bottom="1020" />
+										<TypeInfo Item0="{1B8C55EC-E938-4289-B774-38C088713D96}" />
+										<Properties>
+											<Property Name="WndClass">
+												<Value Value="Chrome_RenderWidgetHostHWND" />
+											</Property>
+											<Property Name="WndCaption">
+												<Value Value="Chrome Legacy Window" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="Chrome_RenderWidgetHostHWND2" Key="{84101F12-199B-49F9-BBDC-DB5106D516D4}">
+										<Image FileName="421895386" Left="612" Top="167" Right="993" Bottom="990" />
+										<TypeInfo Item0="{1B8C55EC-E938-4289-B774-38C088713D96}" />
+										<Properties>
+											<Property Name="WndClass">
+												<Value Value="Chrome_RenderWidgetHostHWND" />
+											</Property>
+											<Property Name="WndCaption">
+												<Value Value="Chrome Legacy Window" />
+											</Property>
+											<Property Name="Index">
+												<Value Value="1" Type="0" />
+											</Property>
+										</Properties>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="wndChrome_WidgetWin_12" Key="{5034F656-4DF7-4CEB-8B85-C57ABA76C663}">
+								<TypeInfo Item0="{DE6901C8-B901-45C3-837F-EB94BE057400}" />
+								<Properties>
+									<Property Name="WndClass">
+										<Value Value="Chrome_WidgetWin_1" />
+									</Property>
+									<Property Name="WndCaption">
+										<Value Value="" />
+									</Property>
+									<Property Name="Index">
+										<Value Value="1" Type="0" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="Chrome_RenderWidgetHostHWND" Key="{AA9248F0-35FC-4BFF-9B74-BA869E950693}">
+										<Image FileName="-1825488171" Left="1" Top="0" Right="122" Bottom="163" />
+										<TypeInfo Item0="{1B8C55EC-E938-4289-B774-38C088713D96}" />
+										<Properties>
+											<Property Name="WndClass">
+												<Value Value="Chrome_RenderWidgetHostHWND" />
+											</Property>
+											<Property Name="WndCaption">
+												<Value Value="Chrome Legacy Window" />
+											</Property>
+										</Properties>
+									</Child>
+								</Children>
+							</Child>
+						</Children>
+					</Child>
+					<Child Name="browser" Key="{0D259DEA-C5FE-43AC-98A6-7CCBE9F8252D}">
+						<Properties>
+							<Property Name="ObjectType">
+								<Value Value="Browser" />
+							</Property>
+						</Properties>
+						<Children>
+							<Child Name="BrowserWindow" Key="{5F989A03-65C1-4FAD-AB8E-4F08142CD15E}">
+								<Image FileName="1301502003" Left="-9" Top="-9" Right="1929" Bottom="1029" />
+								<Properties>
+									<Property Name="ObjectType">
+										<Value Value="BrowserWindow" />
+									</Property>
+									<Property Name="ObjectIdentifier">
+										<Value Value="0" Type="0" />
+									</Property>
+								</Properties>
+							</Child>
+							<Child Name="pageUrcConstruction" Key="{D904EA8C-EACF-47BB-B010-53C3FD3B6CD2}">
+								<Image FileName="1301502003" Left="0" Top="128" Right="1920" Bottom="1020" />
+								<Properties>
+									<Property Name="ObjectType">
+										<Value Value="Page" />
+									</Property>
+									<Property Name="URL">
+										<Value Value="http://127.0.0.1:8000/" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="textboxUserid" Key="{D18C938A-5C32-4549-9472-88A776555BA8}">
+										<Image FileName="1301502003" Left="783" Top="573" Right="1158" Bottom="615" />
+										<TypeInfo Item0="{3FBEFFFC-B76A-4216-91F3-296DE48861B0}" />
+										<Selectors>
+											<Selector>
+												<Value Value="#userid" />
+											</Selector>
+											<Selector>
+												<Value Value="//input[@name=&apos;userid&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//input[@type=&apos;text&apos;]" />
+											</Selector>
+										</Selectors>
+									</Child>
+									<Child Name="passwordboxPass" Key="{5E59A77A-DBA2-4CDB-BDFF-5966E21DBCF3}">
+										<Image FileName="-252977432" Left="783" Top="717" Right="1158" Bottom="759" />
+										<TypeInfo Item0="{3FBEFFFC-B76A-4216-91F3-296DE48861B0}" />
+										<Selectors>
+											<Selector>
+												<Value Value="#pass" />
+											</Selector>
+											<Selector>
+												<Value Value="//input[@name=&apos;pass&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//input[@type=&apos;password&apos;]" />
+											</Selector>
+										</Selectors>
+									</Child>
+									<Child Name="buttonLogIn" Key="{79B5D8B7-02AB-43A6-A28B-8C9FB03163F0}">
+										<Image FileName="-2017379269" Left="910" Top="801" Right="1033" Bottom="860" />
+										<TypeInfo Item0="{0578F321-93CB-4C09-8A57-D9D4C3673E18}" />
+										<Selectors>
+											<Selector>
+												<Value Value="//button[.=&apos;Log in&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//button[contains(@class, &apos;login&apos;)]" />
+											</Selector>
+											<Selector>
+												<Value Value="//button" />
+											</Selector>
+										</Selectors>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="page1270018000Se" Key="{ED525F6A-4D5A-4475-B1A0-B7663F94D362}">
+								<Image FileName="1301502003" Left="0" Top="128" Right="1920" Bottom="1020" />
+								<TypeInfo Item0="{328C544C-9CBF-4942-9D51-36C21FF61D06}" />
+								<Properties>
+									<Property Name="ObjectType">
+										<Value Value="Page" />
+									</Property>
+									<Property Name="URL">
+										<Value Value="http://127.0.0.1:8000/SE/" />
+									</Property>
+								</Properties>
+							</Child>
+							<Child Name="page1270018000Adddayse" Key="{FF1F3AE2-59F0-402A-9EF9-564F127D959E}">
+								<Image FileName="1301502003" Left="0" Top="128" Right="1920" Bottom="1020" />
+								<Properties>
+									<Property Name="ObjectType">
+										<Value Value="Page" />
+									</Property>
+									<Property Name="URL">
+										<Value Value="http://127.0.0.1:8000/AddDaySE/" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="navSiteenghbm" Key="{988814C8-2793-4DC9-AEFB-A4A8042A99AB}">
+										<Image FileName="1139592718" Left="476" Top="221" Right="1947" Bottom="365" />
+										<TypeInfo Item0="{2DBA0B82-9724-47BA-9111-90A19087D74A}" />
+										<Selectors>
+											<Selector>
+												<Value Value="nav[contains(., &apos;SiteEngHBM&apos;)]" />
+											</Selector>
+											<Selector>
+												<Value Value="nav[contains(@class, &apos;namebar&apos;)]" />
+											</Selector>
+											<Selector>
+												<Value Value="nav" />
+											</Selector>
+										</Selectors>
+									</Child>
+									<Child Name="numberinputIdNolabor" Key="{C42F030C-250B-4578-AA1B-30BA11D9CAE8}">
+										<Image FileName="1997368643" Left="1270" Top="750" Right="1465" Bottom="854" />
+										<TypeInfo Item0="{2DBA0B82-9724-47BA-9111-90A19087D74A}" />
+										<Selectors>
+											<Selector>
+												<Value Value="#id_NoLabor" />
+											</Selector>
+											<Selector>
+												<Value Value="//input[@name=&apos;NoLabor&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//td[3]/input[@type=&apos;number&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//td[3]/input" />
+											</Selector>
+										</Selectors>
+									</Child>
+									<Child Name="numberinputIdNohelp" Key="{120792F9-5355-4D62-8E45-348AE23DBEE9}">
+										<Image FileName="-200338835" Left="1516" Top="750" Right="1695" Bottom="854" />
+										<TypeInfo Item0="{2DBA0B82-9724-47BA-9111-90A19087D74A}" />
+										<Selectors>
+											<Selector>
+												<Value Value="#id_NoHelp" />
+											</Selector>
+											<Selector>
+												<Value Value="//input[@name=&apos;NoHelp&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//td[4]/input[@type=&apos;number&apos;]" />
+											</Selector>
+											<Selector>
+												<Value Value="//td[4]/input" />
+											</Selector>
+										</Selectors>
+									</Child>
+									<Child Name="textnodeNam" Key="{375314D1-3489-4EFA-858F-A52C615AEAF3}">
+										<Image FileName="-1636056050" Left="476" Top="228" Right="1002" Bottom="355" />
+										<TypeInfo Item0="{2DBA0B82-9724-47BA-9111-90A19087D74A}" />
+										<Selectors>
+											<Selector>
+												<Value Value="#nam" />
+											</Selector>
+											<Selector>
+												<Value Value="//p[.=&apos;SiteEngHBM&apos;]" />
+											</Selector>
+										</Selectors>
+									</Child>
+									<Child Name="cell" Key="{A5C86929-12F1-4960-890A-24DCBAE223D8}">
+										<Image FileName="1039630307" Left="478" Top="859" Right="866" Bottom="996" />
+										<TypeInfo Item0="{2DBA0B82-9724-47BA-9111-90A19087D74A}" />
+										<Selectors>
+											<Selector>
+												<Value Value="//td[.=&apos;HC Verma&apos;]" />
+											</Selector>
+										</Selectors>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="wndChrome_WidgetWin_1" Key="{4152E431-DA79-47C0-9918-B44CC548E4C8}">
+								<Image FileName="1831751372" Left="0" Top="0" Right="121" Bottom="163" />
+								<Properties>
+									<Property Name="WndClass">
+										<Value Value="Chrome_WidgetWin_1" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="Chrome_RenderWidgetHostHWND" Key="{9FF17FC4-EE0F-41A7-90B6-6A12615F0FCF}">
+										<Image FileName="1831751372" Left="0" Top="0" Right="120" Bottom="163" />
+										<TypeInfo Item0="{1B8C55EC-E938-4289-B774-38C088713D96}" />
+										<Properties>
+											<Property Name="WndClass">
+												<Value Value="Chrome_RenderWidgetHostHWND" />
+											</Property>
+											<Property Name="WndCaption">
+												<Value Value="Chrome Legacy Window" />
+											</Property>
+										</Properties>
+									</Child>
+								</Children>
+							</Child>
+						</Children>
+					</Child>
+				</Children>
+			</Child>
+		</Children>
+	</Nodes>
+	<LogicalNodes Name="Aliases" Owner="{BE401E45-B2D6-4FBA-931A-C2117D5C51AD}">
+		<Child Name="brave" Owner="{5EF476A1-B304-4D86-9D29-06B1C65777D0}">
+			<Child Name="wndChrome_WidgetWin_1" Owner="{FC940A0D-EB8F-4803-AE8E-4080736ACFE2}">
+				<Child Name="Chrome_RenderWidgetHostHWND" Owner="{53773889-A30D-4368-8D96-567D5857498E}" />
+				<Child Name="Chrome_RenderWidgetHostHWND2" Owner="{84101F12-199B-49F9-BBDC-DB5106D516D4}" />
+			</Child>
+			<Child Name="wndChrome_WidgetWin_12" Owner="{5034F656-4DF7-4CEB-8B85-C57ABA76C663}">
+				<Child Name="Chrome_RenderWidgetHostHWND" Owner="{AA9248F0-35FC-4BFF-9B74-BA869E950693}" />
+			</Child>
+		</Child>
+		<Child Name="browser" Owner="{0D259DEA-C5FE-43AC-98A6-7CCBE9F8252D}">
+			<Child Name="BrowserWindow" Owner="{5F989A03-65C1-4FAD-AB8E-4F08142CD15E}" />
+			<Child Name="pageUrcConstruction" Owner="{D904EA8C-EACF-47BB-B010-53C3FD3B6CD2}">
+				<Child Name="textboxUserid" Owner="{D18C938A-5C32-4549-9472-88A776555BA8}" />
+				<Child Name="passwordboxPass" Owner="{5E59A77A-DBA2-4CDB-BDFF-5966E21DBCF3}" />
+				<Child Name="buttonLogIn" Owner="{79B5D8B7-02AB-43A6-A28B-8C9FB03163F0}" />
+			</Child>
+			<Child Name="page1270018000Se" Owner="{ED525F6A-4D5A-4475-B1A0-B7663F94D362}" />
+			<Child Name="page1270018000Adddayse" Owner="{FF1F3AE2-59F0-402A-9EF9-564F127D959E}">
+				<Child Name="navSiteenghbm" Owner="{988814C8-2793-4DC9-AEFB-A4A8042A99AB}">
+					<Child Name="textnodeNam" Owner="{375314D1-3489-4EFA-858F-A52C615AEAF3}" />
+				</Child>
+				<Child Name="numberinputIdNolabor" Owner="{C42F030C-250B-4578-AA1B-30BA11D9CAE8}" />
+				<Child Name="numberinputIdNohelp" Owner="{120792F9-5355-4D62-8E45-348AE23DBEE9}" />
+				<Child Name="cell" Owner="{A5C86929-12F1-4960-890A-24DCBAE223D8}" />
+			</Child>
+			<Child Name="wndChrome_WidgetWin_1" Owner="{4152E431-DA79-47C0-9918-B44CC548E4C8}">
+				<Child Name="Chrome_RenderWidgetHostHWND" Owner="{9FF17FC4-EE0F-41A7-90B6-6A12615F0FCF}" />
+			</Child>
+		</Child>
+	</LogicalNodes>
+</Root>

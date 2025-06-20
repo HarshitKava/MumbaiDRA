@@ -1,0 +1,17 @@
+{% extends 'LabourReport/NavbarLR.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/Admin/Admin.css' %}">
+{% endblock %}
+{% block content %}
+    <a href="{% url 'AddUser' %}" class="addSE">Add User</a>
+    <a href="{% url 'AddArea' %}" class="addArea">Add Area</a>
+    <a href="{% url 'AddContractor' %}" class="addCatDeploy">Add Contractor</a>  
+    <a href="{% url 'AddStructure' %}" class="addCont">Add Structure</a>
+    <a href="{% url 'AddLabours' %}" class="reset">Add Labour Category</a>
+    <a href="{% url 'LabourOfContractor' %}" class="LabToCont">Add Labour with Contractor</a>
+    <a href="{% url 'AddActivity' %}" class="addCat">Category of Deployment</a>
+{% endblock %}
+{% block js %}
+<script src="{% static '/js/Admin/admin.js' %}" async defer></script>
+{% endblock %}

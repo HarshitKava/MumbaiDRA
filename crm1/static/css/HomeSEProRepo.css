@@ -1,0 +1,398 @@
+body
+{
+    background-image: url(https://www.urcindia.com/img/new_logo.svg);
+    background-repeat:no-repeat;
+    background-position: 53% 15%;
+    background-size: 40%;
+    height: 844px;
+}
+.namebar{
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    font-size: 200%;
+    background: #a8a8a8;
+}
+
+#navbar{
+    overflow: hidden;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    font-size: 200%;
+    background: #a8a8a8;
+}
+#date{
+    display: inline;
+    margin-left: 2%;
+}
+.bkbtn{
+    background: #a8a8a8;
+    padding: 3% 0% 3% 0%;
+    text-align: center;
+    color:white;
+    font-weight: normal;
+    line-height: 25px;
+
+    float: right;
+    margin-right: 2%;
+    border: 0px;
+}
+.bkbtn:hover, .bkbtn:active{
+    background: #575457;
+    text-decoration: none;
+    color: white;
+}
+.addbtn{
+    display: block;
+    background: #a8a8a8;
+    padding: 6% 5% 6% 5%;
+    font-size: 195%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+
+    position: absolute;
+    margin-top: 53%;
+    margin-left: 25%;
+    -webkit-border-radius: 4;
+    -moz-border-radius: 4;
+    border-radius: 4px;
+    -webkit-box-shadow: 6px 6px 15px #bfbbbf;
+    -moz-box-shadow: 6px 6px 15px #bfbbbf;
+    box-shadow: 6px 6px 15px #bfbbbf;
+    font-family: Arial;
+    color: #ffffff;
+    
+    background: #a8a8a8;
+    
+    text-decoration: none;
+    
+}
+.addbtn:hover, .addbtn:active{
+    background: #575457;
+    text-decoration: none;
+    color: white;
+}
+.viewbtn{
+  display: block;
+  background: #a8a8a8;
+  padding: 6% 5% 6% 5%;
+  font-size: 195%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  line-height: 25px;
+
+  position: absolute;
+  margin-top: 83%;
+  margin-left: 15.5%;
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+  -webkit-box-shadow: 6px 6px 15px #bfbbbf;
+  -moz-box-shadow: 6px 6px 15px #bfbbbf;
+  box-shadow: 6px 6px 15px #bfbbbf;
+  font-family: Arial;
+  color: #ffffff;
+  
+  background: #a8a8a8;
+  
+  text-decoration: none;
+  
+}
+.viewbtn:hover, .viewbtn:active{
+  background: #575457;
+  text-decoration: none;
+  color: white;
+}
+
+.showbtn{
+    display: block;
+    background: #a8a8a8;
+    padding: 6% 5% 6% 5%;
+    font-size: 195%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+
+    position: absolute;
+    top: 58%;
+    left: 23%;
+    -webkit-border-radius: 4;
+    -moz-border-radius: 4;
+    border-radius: 4px;
+    -webkit-box-shadow: 6px 6px 15px #bfbbbf;
+    -moz-box-shadow: 6px 6px 15px #bfbbbf;
+    box-shadow: 6px 6px 15px #bfbbbf;
+    font-family: Arial;
+    color: #ffffff;
+    background: #a8a8a8;
+    text-decoration: none;
+}
+.showbtn:hover, .showbtn:active{
+    background: #575457;
+    text-decoration: none;
+    color: white;
+}
+.viewnightbtn{
+  display: block;
+  background: #a8a8a8;
+  padding: 6% 5% 6% 5%;
+  font-size: 195%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  line-height: 25px;
+
+  position: absolute;
+  margin-top: 144%;
+  margin-left: 12.5%;
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+  -webkit-box-shadow: 6px 6px 15px #bfbbbf;
+  -moz-box-shadow: 6px 6px 15px #bfbbbf;
+  box-shadow: 6px 6px 15px #bfbbbf;
+  font-family: Arial;
+  color: #ffffff;
+  
+  background: #a8a8a8;
+  
+  text-decoration: none;
+  
+}
+.viewnightbtn:hover, .viewnightbtn:active{
+  background: #575457;
+  text-decoration: none;
+  color: white;
+}
+
+#extra{
+    margin-top: 200%;
+    margin-left: 30%;
+    visibility: hidden;
+}
+#delbtn:hover {
+    background: #575457;
+    text-decoration: none;
+}
+
+/* Style the navigation menu */
+.topnav {
+  overflow: hidden;
+  background-color: #d6d6d6;
+  position: relative;
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.topnav #myLinks {
+  display: none;
+}
+
+/* Style navigation menu links */
+.topnav a {
+  color: black;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 150%;
+  display: block;
+}
+
+/* Style the hamburger menu */
+.topnav a.icon {
+  background: #a8a8a8;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* Add a grey background color on mouse-over */
+.topnav a:hover {
+  background-color: #a8a8a8;
+  color: #d6d6d6;
+}
+
+/* Style the active link (or home/logo) */
+.active {
+  background-color: #a8a8a8;
+  color: balck;
+}
+/* Media screen for desktop */
+@media screen and (min-width: 800px) {
+  body
+  {
+      background-image: url(https://www.urcindia.com/img/new_logo.svg);
+      background-repeat:no-repeat;
+      background-position: 53% -80%;
+      background-size: 20%;
+      height: 0px;
+  }
+  .namebar{
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
+      font-size: 200%;
+      background: #a8a8a8;
+  }
+
+  #navbar{
+      overflow: hidden;
+      position: fixed;
+      bottom: 0px;
+      width: 100%;
+      font-size: 200%;
+      background: #a8a8a8;
+  }
+  #date{
+      display: inline;
+      margin-left: 2%;
+  }
+  .addbtn{
+      display: block;
+      background: #a8a8a8;
+      padding: 2% 1.5% 2% 1.5%;
+      font-size: 160%;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      line-height: 25px;
+
+      position: absolute;
+      margin-top: 0%;
+      margin-left: 0%;
+      top: 39%;
+      left: 14%;
+      -webkit-border-radius: 4;
+      -moz-border-radius: 4;
+      border-radius: 4px;
+      -webkit-box-shadow: 6px 6px 15px #bfbbbf;
+      -moz-box-shadow: 6px 6px 15px #bfbbbf;
+      box-shadow: 6px 6px 15px #bfbbbf;
+      font-family: Arial;
+      color: #ffffff;
+      
+      background: #a8a8a8;
+      
+      text-decoration: none;
+      
+  }
+  .viewbtn{
+    display: block;
+    background: #a8a8a8;
+    padding: 2% 1% 2% 1%;
+    font-size: 160%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+
+    position: absolute;
+    margin-top: 0%;
+    margin-left: 0%;
+    top: 69.2%;
+    left: 12%;
+    -webkit-border-radius: 4;
+    -moz-border-radius: 4;
+    border-radius: 4px;
+    -webkit-box-shadow: 6px 6px 15px #bfbbbf;
+    -moz-box-shadow: 6px 6px 15px #bfbbbf;
+    box-shadow: 6px 6px 15px #bfbbbf;
+    font-family: Arial;
+    color: #ffffff;
+    
+    background: #a8a8a8;
+    
+    text-decoration: none;
+    
+  }
+
+  .showbtn{
+      display: block;
+      background: #a8a8a8;
+      padding: 2% 1% 2% 1%;
+      font-size: 160%;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      line-height: 25px;
+
+      position: absolute;
+      top: 39%;
+      left: 65%;
+      -webkit-border-radius: 4;
+      -moz-border-radius: 4;
+      border-radius: 4px;
+      -webkit-box-shadow: 6px 6px 15px #bfbbbf;
+      -moz-box-shadow: 6px 6px 15px #bfbbbf;
+      box-shadow: 6px 6px 15px #bfbbbf;
+      font-family: Arial;
+      color: #ffffff;
+      background: #a8a8a8;
+      text-decoration: none;
+  }
+  .viewnightbtn{
+    display: block;
+    background: #a8a8a8;
+    padding: 2% 1% 2% 1%;
+    font-size: 160%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+
+    position: absolute;
+    margin-top: 0%;
+    margin-left: 0%;
+    top: 69.2%;
+    left: 63%;
+    -webkit-border-radius: 4;
+    -moz-border-radius: 4;
+    border-radius: 4px;
+    -webkit-box-shadow: 6px 6px 15px #bfbbbf;
+    -moz-box-shadow: 6px 6px 15px #bfbbbf;
+    box-shadow: 6px 6px 15px #bfbbbf;
+    font-family: Arial;
+    color: #ffffff;
+    
+    background: #a8a8a8;
+    
+    text-decoration: none;
+    
+  }
+
+  .addbtn, .viewbtn, .viewnightbtn, .showbtn{
+    color: #ffffff;
+    background-color: #015099;
+    animation: zoomout 0.7s forwards ;
+
+}
+.addbtn:hover, .viewbtn:hover, .viewnightbtn:hover, .showbtn:hover{
+animation: zoomin 0.7s forwards ;
+}
+@keyframes zoomin {
+50% {
+    transform: scale(1.3);
+    background-color: #008837;
+    box-shadow: 0 0 25px 0 #015099;
+}
+100% {
+    transform: scale(1.2);
+    background-color: #008837;
+    box-shadow: 0 0 25px 0 #015099;
+}
+}
+@keyframes zoomout {
+100% {
+    transform: scale(1);
+}
+0% {
+    transform: scale(1.2);
+    background-color: #008837;
+    box-shadow: 0 0 10px 0 #015099;
+}
+}
+}

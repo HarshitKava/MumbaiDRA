@@ -1,0 +1,61 @@
+{% extends 'LabourReport/NavbarLR.html' %}
+{% load static %}
+{% block css %}
+        <link rel="stylesheet" href="{% static '/css/SiteEngViewDayData.css' %}">
+        {% endblock %}
+        {% block LRLink %}<a class="nav-link active" href="{% url 'HomeSE' %}">Labour Report</a>{% endblock %}
+        {% block PRLink %}<a class="nav-link" href="{% url 'HomeSEProRepo' %}">Productivity Report</a>{% endblock %}
+        {% block content %}
+      <table id='display' style='font-size:120%;'>
+        <tr>
+          <th colspan="6" align="center" ><center>Last 5-Days Data</center></th>
+        </tr>
+        <tr>
+          <th>Date and Time</th>
+          <th>Contractor Name</th>
+          <th>Labour Category</th>
+          <th>Structure</th>
+          <th>Category of Deployment</th>
+          <th>Deployment</th>
+        </tr>
+        {% if Report %}
+        {% for i in Report %}
+        <tr>
+          <td>{{ i.created_at }}</td>
+          <td>{{ i.ContractorName }}</td>
+          <td>{{ i.LabourCategory }}</td>
+          <td>{{ i.CategoryName }}</td>
+          <td>{{ i.StructureName }}</td>
+          <td>{{ i.NoLabor }}</td>
+          
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+          <td colspan="6" align="center">No Data Found</td>
+        </tr>
+        {% endif %}
+      </table>{% endblock %}
+      {% block bkbtn %}<a href="{% url 'HomeSE' %}" class="back">Home</a>{% endblock %}
+      {% block js %}<script src="{% static '/js/form.js' %}" async defer></script>
+      {% endblock %}<!-- <script>
+        
+        $("#id_ContractorName").change(function(){
+          console.log("changed");
+          const url=$("#form").attr("data-labour-url");
+          const contractorId=$(this).val();
+          $.ajax({
+            url:url,
+            data:{
+              'contractor_id':contractorId
+            },
+            success:function(data){
+              console.log(data);
+              $("#id_LabourCategory").html(data);
+            }
+          });
+        })
+
+    </script>
+  </body>
+</html> -->

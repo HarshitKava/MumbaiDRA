@@ -1,0 +1,161 @@
+
+
+#id_NoLabor, #id_NoHelp{
+    width: 100%;
+}
+#display {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10%;
+    /* margin-left: 2.5%; */
+    width: 100%;
+  }
+  
+  #display td, #display th {
+    border: 1px solid #000;
+    padding: 0px;
+  }
+
+  /* color for 1st tr */
+   
+  #display tr:nth-child(odd){background-color: #00883628;}
+  #display tr:nth-child(even){background-color: #01509928;}
+  #display tr th {
+    background-color: #7a7a7a;
+    color: white;
+}
+  /* #display tr:hover {background-color: rgb(255, 255, 255);} */
+  
+  #display th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+  }
+
+/* Media screen for desktop */
+@media screen and (min-width: 800px) {
+        #display {
+            width: 80%;
+            margin-left: 10%;
+        }
+        #display td, #display th {
+            width:5%;
+            font-size: large;
+            border: 1px solid #ddd;
+            padding-top: 1%;
+            padding-bottom: 1%;
+            padding-right: 1%;
+            padding-left: 1%;
+
+        }
+        .input-container{
+            position:relative;
+            margin-top: 3%;
+            width: 25%;
+        }
+        .input-container label{
+            position:absolute;
+            top:0px;
+            left:0px;
+            font-size:150%;
+            color:#008837;
+            transition: all 0.5s ease-in-out;
+        }
+        .input-container input{ 
+            display: inline;
+            border:0;
+            width: 100%;
+            border-bottom:2px solid #015099;  
+            background:transparent;
+            padding:8px 0 5px 0;
+            font-size:16px;
+            color:#015099;
+        }
+        
+        .input-container.select label{
+            position:relative;
+            float: left;
+            font-size:150%;
+            color:#008837;
+            border: 0px;
+            transition: all 0.5s ease-in-out;
+        }
+        .input-container select{ 
+            display: block;
+              border:0;
+              width: 100%;
+              border-bottom:2px solid #015099;  
+              background:transparent;
+              padding:8px 0 5px 0;
+              box-shadow: none;
+              font-size:16px;
+              color:#015099;
+            }
+        .input-container.select select option{
+            color: #008837;
+        }
+       
+        .input-container input:focus{ 
+            border:none;	
+            outline:none;
+            border-bottom:2px solid #015099;
+        }
+        /* style autofill */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active  {
+            transition: background-color 5000s;
+            -webkit-text-fill-color: #015099 !important;
+        }
+        
+        input:disabled{
+            background-color: #ff00007c;
+        }
+        .input-container input:focus ~ label,
+        .input-container input:valid ~ label {
+            top:-17px;
+            font-size:20px;
+            background-color: transparent;
+        }
+        input[type="number"]::-webkit-inner-spin-button{
+            appearance: none;
+        }
+        .submitbtn{
+            position: relative;
+            top: 2rem;
+            font-size: 150%;
+            border:0px;
+            color: #008837;
+            background-color: #ffffff;
+            animation: zoomout 0.5s forwards ;
+            
+        }
+        .submitbtn:hover{
+            animation: zoomin 0.5s forwards ;
+            
+        }
+        @keyframes zoomin {
+            100% {
+                color: #008837;
+                border-color: #015099;
+                border-radius: 0%;
+                border-bottom: 2px solid #015099;
+                /* background-color: #015099; */
+                /* box-shadow: 0 0 5px 0 #015099; */
+            }
+            0%{
+                color: #008837;
+            }
+        }
+        @keyframes zoomout {
+            100% {
+                color: #008837;
+            }
+            0% {
+                color: #008837;
+                border-color: #015099;
+                border-radius: 0%;
+                border-bottom: 2px solid #015099;
+            }
+        }
+}

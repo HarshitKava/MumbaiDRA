@@ -1,0 +1,202 @@
+body
+{
+    background-image: url(https://www.urcindia.com/img/new_logo.svg);
+    background-repeat:no-repeat;
+    background-position: 50% 15%;
+    background-size: 40%;
+    height: 844px;
+}
+button:hover {
+    background: #575457;
+    text-decoration: none;
+}
+input{
+    border: 0px;
+    color: white;
+    background-color:#008837;
+}
+table{
+    font-size: large;
+    position: absolute;
+    top: 30%;
+    left: 5%;
+}
+td{
+
+    padding: 10px;
+}
+
+.bkbtn{
+    float: right;
+    margin-right: 2%;
+    border: 0px;
+    color: #ffffff;
+    background-color: #a8a8a8;
+}
+.submitbtn{
+    border: 0px;
+    font-size: 150%;
+    border-radius: 5%;
+    color: #ffffff;
+    background-color: #a8a8a8;
+}
+.namebar{
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    font-size: 200%;
+    background: #a8a8a8;
+}
+
+#errormsg{
+    margin-top: 10%;
+    margin-right: 8%;
+    font-size: 130%;
+}
+#navbar{
+    overflow: hidden;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    font-size: 200%;
+    background: #a8a8a8;
+}
+#date{
+    display: inline;
+    margin-left: 2%;
+}
+@media only screen and (min-width: 600px) {
+    body
+    {
+        background-image: url(https://www.urcindia.com/img/new_logo.svg);
+        background-repeat:no-repeat;
+        background-position: 50% 15%;
+        background-size: 20%;
+        height: 700px;
+    }
+    a:hover {
+        background: #575457;
+        text-decoration: none;
+        color: #ffffff;
+    }
+    form{
+        position: relative;
+        top: 12rem;
+    }
+    
+
+    .bkbtn{
+        float: right;
+        padding-left: 1%;
+        padding-right: 1%;
+        margin-right: 0%;
+        border: 0px;
+        color: #ffffff;
+        background-color: #a8a8a8;
+        border-radius: 5px;
+    }
+    
+    #submitbtn{
+        position: relative;
+        top: 2rem;
+        font-size: 150%;
+        /* border: 3px solid #008837; */
+        color: #008837;
+        background-color: #ffffff;
+        animation: zoomout 0.5s forwards ;
+        
+    }
+    #submitbtn:hover{
+        animation: zoomin 0.5s forwards ;
+        /* delay */
+        
+    }
+    @keyframes zoomin {
+        100% {
+            color: #008837;
+            border-color: #015099;
+            border-radius: 0%;
+            border-bottom: 2px solid #015099;
+            /* background-color: #015099; */
+            /* box-shadow: 0 0 5px 0 #015099; */
+        }
+        0%{
+            color: #008837;
+        }
+    }
+    @keyframes zoomout {
+        100% {
+            color: #008837;
+        }
+        0% {
+            color: #008837;
+            border-color: #015099;
+            border-radius: 0%;
+            border-bottom: 2px solid #015099;
+        }
+    }
+    .input-container{
+        position:relative;
+        margin-top: 3%;
+        width: 25%;
+    }
+    .input-container label{
+        position:absolute;
+        top:0px;
+        left:0px;
+        font-size:150%;
+        color:#008837;
+        transition: all 0.5s ease-in-out;
+    }
+    .input-container input{ 
+      border:0;
+      width: 100%;
+      border-bottom:2px solid #015099;  
+      background:transparent;
+      padding:8px 0 5px 0;
+      
+      font-size:16px;
+      color:#015099;
+    }
+   
+    .input-container input:focus{ 
+        border:none;	
+        outline:none;
+        border-bottom:2px solid #015099;
+    }
+    .input-container input:focus ~ label,
+    .input-container input:valid ~ label{
+        top:-17px;
+        font-size:20px;
+        
+        
+    }
+    input[type="number"]::-webkit-inner-spin-button{
+        appearance: none;
+    }
+    .namebar{
+        overflow: hidden;
+        position: absolute;
+        width: 100%;
+        font-size: 200%;
+        background: #a8a8a8;
+    }
+
+    #errormsg{
+        margin-top: 10%;
+        margin-right: 8%;
+        font-size: 130%;
+    }
+    #navbar{
+        overflow: hidden;
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        font-size: 200%;
+        background: #a8a8a8;
+    }
+    #date{
+        display: inline;
+        margin-left: 1%;
+    }
+}

@@ -1,0 +1,131 @@
+
+select{
+    margin-bottom: 5%;
+}
+form{
+    margin-top: 50%;
+    margin-left: 35%;
+}
+.invisible{
+    visibility: hidden;
+}
+.namebar{
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    font-size: 200%;
+    background: #a8a8a8;
+}
+.typeOfLabour{
+    display: block;
+    visibility: visible;
+    margin-bottom: 0%;
+    font-size: 80%;
+}
+
+.submitbtn{
+    position: absolute;
+    font-size: 200%;
+    margin-top: 0%;
+    margin-left: -9%;
+    margin-bottom: 25%;
+    width: 50%;
+    border: 0px;
+    color: #ffffff;
+    background-color: #a8a8a8;
+}
+.bkbtn{
+    float: right;
+    margin-right: 0%;
+    padding: 0% 1%;
+    border-radius: 5%;
+    border: 0px;
+    color: #ffffff;
+    background-color: #a8a8a8;
+}
+.bkbtn:hover, .bkbtn:active{
+    background: #575457;
+    text-decoration: none;
+    color: white;
+}
+
+#confirmation{
+    margin-left: -50%;
+    margin-top: 10%;
+    color: red;
+}
+#heading{
+    position: absolute;
+    margin-top: -20%;
+    margin-left: 30%;
+}
+#selectContractor{
+    margin-bottom: 10%;
+}
+#contractor, #Labour{
+    display: inline;
+    position: absolute;
+    font-size: 120%;
+    width: 38%;
+    margin-top:8%;
+    visibility: hidden;
+}
+#Labour{
+    margin-top:25%;
+    width: 25%;
+    width: 38%;
+    visibility: visible;
+}
+#mainLabour, #helper{
+    position: absolute;
+    display:inline;
+    font-size: 120%;
+    width: 38%;
+    margin-top: 45%;
+}
+#helper{
+    width: 38%;
+    margin-top: 65%;
+}
+#navbar{
+    overflow: hidden;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    font-size: 200%;
+    background: #a8a8a8;
+}
+#date{
+    display: inline;
+    margin-left: 2%;
+}
+#extra{
+    margin-top: 0%;
+    margin-left: 30%;
+    float: bottom;
+    visibility: hidden;
+}
+#display {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  margin-top: 15%;
+  margin-bottom:20%;
+  width: 100%;
+}
+
+#display td, #display th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#display tr:nth-child(even){background-color: #f2f2f2;}
+
+#display tr:hover {background-color: #ddd;}
+
+#display th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(170, 170, 170);
+  color: white;
+}

@@ -1,0 +1,36 @@
+{% extends 'LabourReport/NavbarLR.html' %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static '/css/SiteEngViewDayData.css' %}">
+  {% endblock %}
+  {% block LRLink %}<a class="nav-link active" href="{% url 'HomeSE' %}">Labour Report</a>{% endblock %}
+  {% block PRLink %}<a class="nav-link" href="{% url 'HomeSEProRepo' %}">Productivity Report</a>{% endblock %}
+  {% block content %}
+  <table id='display' style='font-size:120%;'>
+      <tr>
+        <th>Date and Time</th>
+        <th>Areaname</th>
+        <th>Contractor Name</th>
+        <th>Labour Category</th>
+        <th>Structure</th>
+          <th>Category of Deployment</th>
+          <th>Deployment</th>
+      </tr>
+      {% for i in Report %}
+      <tr>
+        <td>{{ i.created_at }}</td>
+        <td>{{ i.Areaname }}</td>
+        <td>{{ i.ContractorName }}</td>
+        <td>{{ i.LabourCategory }}</td>
+        <td>{{ i.CategoryName }}</td>
+        <td>{{ i.StructureName }}</td>
+        <td>{{ i.NoLabor }}</td>
+        
+      </tr>
+      {% endfor %}
+    </table>
+    {% endblock %}
+    {% block bkbtn %}<a href="{% url 'HomeSLI' %}" class="back">Home</a>{% endblock %}
+    {% block js %}
+    <script src="{% static '/js/form.js' %}" async defer></script>
+    {% endblock %}

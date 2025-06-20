@@ -1,0 +1,16 @@
+{% extends 'LabourReport/NavbarLR.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static '/css/SLI/HomeSLI.css' %}">
+    {% endblock %}
+    {% block LRLink %}<a class="nav-link active" href="{% url 'HomeSLI' %}">Labour Report</a>{% endblock %}
+    {% block PRLink %}<a class="nav-link" href="{% url 'HomeSEProRepo' %}">Productivity Report</a>{% endblock %}
+    {% block content %}
+    <a href="{% url 'AddDayCLI' %}" class="addbtn"> Day Report </a>
+    <a href="{% url 'ViewDayCLI' %}" class="viewbtn"> View Day Report </a>
+    <a href="{% url 'AddNightCLI' %}" class="showbtn">Night Report</a>
+    <a href="{% url 'ViewNightCLI' %}" class="viewnightbtn">View Night Report</a>
+    {% endblock %}
+    {% block js %}
+    <script src="{% static '/js/SLI/HomeSLI.js' %}" async defer></script>
+    {% endblock %}

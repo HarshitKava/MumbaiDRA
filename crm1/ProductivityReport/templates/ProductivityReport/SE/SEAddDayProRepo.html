@@ -1,0 +1,193 @@
+{% extends 'ProductivityReport/NavbarPR.html' %}
+{% load static %}
+{% block css %}
+        <link rel="stylesheet" href="{% static '/css/SiteEngAddProRepo.css' %}">
+{% endblock %}
+{% block LRLink %}<a class="nav-link " href="{% url 'HomeSE' %}">Labour Report</a>{% endblock %}
+{% block PRLink %}<a class="nav-link active " href="{% url 'HomeSEProRepo' %}">Productivity Report</a>{% endblock %}
+{% block content %}    
+      {% for i in Report %}
+      <p id="LRid" style="display: none;">{{i.id}}</p>
+      {% endfor %}
+      <center>
+        <div>
+    <form action="" id="form" style="margin-top:5%;" method="POST" data-Contractor-Name="{% url 'ajax_load_Contractor' %}" data-Labour-Category="{% url 'ajax_load_LabCat' %}" > 
+      {% csrf_token %}
+        <div style="display: none;">
+          {{Form.LRid}}
+        </div>
+        <div style="margin-top: 1%;" class="input-container select">
+          <label>Unit:</label>
+          {{Form.Unit}}
+        </div>
+        <div style="display: flex;justify-content:space-around;">
+          <div class="input-container">
+            {{Form.Length}}
+            <label>Length</label>
+          </div>
+          <div class="input-container">
+            {{Form.Breadth}}
+            <label>Breadth</label>
+          </div>
+          <div class="input-container">
+            {{Form.Depth}}
+            <label>Depth</label>
+          </div>
+        </div>
+        <div class="input-container">
+          {{Form.Quantity}}
+          <label>Quantity</label>
+        </div>
+      <input type="submit" value="Add" class="submitbtn">
+    </form>
+  </div>
+  </center>
+  {% endblock %}
+  {% block back %}
+  <a href="{% url 'HomeSEProRepo' %}" class="back">Home</a>
+  {% endblock %}
+  {% block js %}
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- <script src="{% static '/js/form.js' %}" async defer></script> -->
+    <script>
+        // var id_CategoryName = document.getElementById("id_CategoryName");
+        // id_CategoryName.innerHTML = "<option value=''>----------</option>";
+        document.getElementById("id_LRid").value = document.getElementById("LRid").innerHTML;
+        console.log(document.getElementById("id_LRid").value);
+        $("#id_Length").change(function(){
+          console.log("length changed");
+          var length = $("#id_Length").val();
+          var breadth = $("#id_Breadth").val();
+          var depth = $("#id_Depth").val();
+          if (length == 0){
+            length = 1;
+          }
+          if (breadth == 0){
+            breadth = 1;
+          }
+          if (depth == 0){
+            depth = 1;
+          }
+          var quantity = length*breadth*depth;
+          $("#id_Quantity").val(quantity);
+        });
+        $("#id_Breadth").change(function(){
+          var length = $("#id_Length").val();
+          var breadth = $("#id_Breadth").val();
+          var depth = $("#id_Depth").val();
+          if (length == 0){
+            length = 1;
+          }
+          if (breadth == 0){
+            breadth = 1;
+          }
+          if (depth == 0){
+            depth = 1;
+          }
+          var quantity = length*breadth*depth;
+          $("#id_Quantity").val(quantity);
+        });
+        $("#id_Depth").change(function(){
+          var length = $("#id_Length").val();
+          var breadth = $("#id_Breadth").val();
+          var depth = $("#id_Depth").val();
+          if (length == 0){
+            length = 1;
+          }
+          if (breadth == 0){
+            breadth = 1;
+          }
+          if (depth == 0){
+            depth = 1;
+          }
+          var quantity = length*breadth*depth;
+          $("#id_Quantity").val(quantity);
+        });
+        $("#id_Depth").prop("disabled",true);
+        $("#id_Length").prop("disabled",true);
+        $("#id_Breadth").prop("disabled",true);
+        $("#id_Unit").change(function(){
+          var unit = $("#id_Unit").val();
+          console.log(unit);
+          
+          if (unit=="m cube"){
+            $("#id_Depth").prop("disabled",false);
+            $("#id_Length").prop("disabled",false);
+            $("#id_Breadth").prop("disabled",false);
+          }
+          else if (unit=="m sq."){
+            $("#id_Depth").prop("disabled",true);
+            $("#id_Depth").val("");
+            $("#id_Breadth").prop("disabled",false);
+            $("#id_Length").prop("disabled",false);
+          }
+          else if (unit=="m"){
+            $("#id_Depth").prop("disabled",true);
+            $("#id_Depth").val("");
+            $("#id_Breadth").prop("disabled",true);
+            $("#id_Breadth").val("");
+            $("#id_Length").prop("disabled",false);
+          }
+          else if (unit=="none"){
+            $("#id_Depth").prop("disabled",true);
+            $("#id_Length").prop("disabled",true);
+            $("#id_Breadth").prop("disabled",true);
+          }
+          var length = $("#id_Length").val();
+          var breadth = $("#id_Breadth").val();
+          var depth = $("#id_Depth").val();
+          if (length == 0){
+            length = 1;
+          }
+          if (breadth == 0){
+            breadth = 1;
+          }
+          if (depth == 0){
+            depth = 1;
+          }
+          var quantity = length*breadth*depth;
+          $("#id_Quantity").val(quantity);
+        });
+
+        // $("#id_ActivityName").change(function(){
+
+        //   if (selectedText = $("#id_ActivityName option:selected").text() == "Carpenter"){
+        //     $("#depthinput").css("display", "none");
+        //     $("#depthstatic").css("display", "block");
+        //   }
+        //   else{
+        //     $("#depthinput").css("display", "block");
+        //     $("#depthstatic").css("display", "none");
+        //   }
+          
+        //   var selectedText = $("#id_ActivityName option:selected").text();
+        //   $("#id_ActivityNameBeta option").each(function(){
+        //     if ($(this).text() == selectedText){
+        //       $(this).attr("selected", "selected");
+        //     }
+          
+        //     const url=$("#form").attr("data-category-url");
+        //     const ActivityId=$("#id_ActivityNameBeta").val();
+        //     $.ajax({
+        //       url:url,
+        //       data:{
+        //         'activity_id':ActivityId
+        //       },
+        //       success:function(data){
+        //         $("#id_CategoryName").html(data);
+        //       }
+        //     });
+          
+        //   });
+          
+          
+          
+
+          
+        // })
+
+    </script>
+  {% endblock %}

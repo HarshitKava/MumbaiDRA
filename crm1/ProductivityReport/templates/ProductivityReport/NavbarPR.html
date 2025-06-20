@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" href="{% static '/css/Admin/Admin.css' %}"> -->
+        <!-- <link rel="text/stylesheet" href="Admin.css"> -->
+        <style>
+            
+            .nav.nav-tabs{
+                background-color: #056A54;
+                font-size: large;
+                border-bottom:10px solid #325694;
+            }
+            .nav-tabs .nav-link{
+                border: 0px;
+            }
+            .nav-tabs .nav-link.active{
+                margin-top: 0.2%;
+                background-color: #325694;
+                color: white;
+                border-top: 3px solid #325694;
+                border-left: 3px solid #325694;
+                border-right: 3px solid #325694;
+                border-bottom: 0px;
+            }
+            .nav-tabs .nav-link.active:hover{
+                background-color: #5484d680;
+                color: rgb(0, 0, 0);
+                border-top: 3px solid #325694;
+                border-left: 3px solid #325694;
+                border-right: 3px solid #325694;
+                border-bottom: 0px;
+            }
+            .nav-item{
+                margin-top: 0.2%;
+                
+            }
+            .nav-tabs .nav-link{
+                color: #CFCFC3;
+                background-color: #056A54;
+                border: 3px solid #056A54;
+                border-top: 3px solid #056A54;
+                border-left: 3px solid #056A54;
+                border-right: 3px solid #056A54;
+                border-bottom: 0px;
+            }
+            .nav-tabs .nav-link:hover{
+                color: #ffffff;
+                background-color: #059778;
+                border-top: 3px solid #059778;
+                border-left: 3px solid #059778;
+                border-right: 3px solid #059778;
+                border-bottom: 0px;
+            }
+            .nav-link:active{
+                color: #CFCFC3;
+                background-color: #205856;
+                border: 0px;
+            }
+            #footer{
+                background-color: #056A54;
+                font-size: 160%;
+                border-bottom:10px solid #325694;                
+                overflow: hidden;
+                position: fixed;
+                bottom: 0px;
+                width: 100%;
+
+            }
+            #name{
+                /* display: inline; */
+                color: #CFCFC3;
+                float: left;
+                padding-left: 5px;
+                padding-top: 7px;
+                margin-bottom: 0px;
+            }
+            .back{
+                float: right;
+                border: 0px;
+                color: #ffffff;
+                background-color: #325694;
+                border-top: 3px solid #325694;
+                border-left: 3px solid #325694;
+                border-right: 3px solid #325694;
+                border-bottom: 0px;
+                border-radius: 0.25rem 0.25rem 0px 0px;
+                margin-top: 8px;
+                margin-right: 8px;
+                padding: 0rem 1rem;
+            }
+            .back:hover{
+                background-color: #5484d680;
+                color: rgb(0, 0, 0);
+                /* remove underline */
+                text-decoration: none;
+                
+            }
+        </style>
+        {% block css %}
+        {% endblock %}
+
+    </head>
+  <body>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            {% block LRLink %}<a class="nav-link " href="{% url 'HomeAdmin' %}">Labour Report</a>{% endblock %}
+        </li>
+        <li class="nav-item">
+            {% block PRLink %}<a class="nav-link active" href="{% url 'HomeAdminProRepo' %}">Productivity Report</a>{% endblock %}
+        </li>
+        
+    </ul>
+
+    {% block content %}
+    {% endblock %}
+    
+    <div style="z-index: 1;" id="footer"><p id="name">{{request.user}}</p>{% block back %}<a href="{% url 'Logout' %}" class="back">Log Out</a>{% endblock %}</div>
+    {% block js %}
+    {% endblock %}
+    <!-- <script src="{% static '/js/Admin/admin.js' %}" async defer></script> -->
+  </body>
+</html>

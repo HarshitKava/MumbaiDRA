@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>URC Construction</title>
+        <link rel="icon" type="image/x-icon" href="https://www.urcindia.com/img/favicon.ico">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static '/css/SiteEngDelDayData.css' %}">
+    </head>
+  <body>
+    <nav style="z-index: 1; top:0px;" class="namebar" ><p style="display: inline;" id="nam">{{ request.user }}</p>-<p style="display: inline;" id="area">{{ user.Location}}</p></nav>
+    <h2 id="heading" >Delete Data</h2>
+    <form action="" method="POST" >
+      {% csrf_token %}
+        <label for="contractor">Contractor Name:</label><h4>{{new.ContractorName}}</h4>
+        <label for="Labour">Labour Category:</label><h4>{{new.LabourCategory}}</h4>
+        <label for="mainLabour">No. of Labour:</label><h4>{{new.NoLabor}}</h4>
+        <label for="helper">No. of Helper:</label><h4>{{new.NoHelp}}</h4>
+        <h3 align="center" id="confirmation">Are you sure you want to delete?</h3>
+        <input type="submit" name="submit" class="submitbtn" value="Delete">
+    </form>
+    <div style="z-index: 1;" id="navbar"><p id="date">{{ today }}</p>
+    <a href="{% url 'AddNightCLI'%}" class="bkbtn">Cancel</a></div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="" async defer></script>
+    <script>
+        function GetData(ContName){
+            const ajaxreq=new XMLHttpRequest();
+            ajaxreq.open('Get','http://laborreport.infinityfreeapp.com/Area_1/Report/getdata.php?select='+ContName,'TRUE');
+            ajaxreq.send();
+
+            ajaxreq.onreadystatechange=function(){
+                if (ajaxreq.readyState == 4 && ajaxreq.status == 200)
+                {
+                    document.getElementById('labour').innerHTML = ajaxreq.responseText;
+                }
+            }
+        }
+    </script>
+  </body>
+</html>

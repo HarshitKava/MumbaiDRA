@@ -1,0 +1,114 @@
+
+@media only screen and (min-width: 600px) {
+    body
+    {
+        background-image: url(https://www.urcindia.com/img/new_logo.svg);
+        background-repeat:no-repeat;
+        background-position: 52% -100%;
+        background-size: 20%;
+    }
+    form{
+        position: absolute;
+        margin-top: 0%;
+        margin-left: 0%;
+        top: 37%;
+        left: 42%;
+    }
+    .bkbtn:hover{
+        color: #ffffff;
+        background: #575457;
+        text-decoration: none;
+    }
+    .bkbtn{
+        padding-left: 1%;
+        padding-right: 1%;
+        border-radius: 5px;
+        float: right;
+        margin-right: 0%;
+        border: 0px;
+        color: #ffffff;
+        background-color: #a8a8a8;
+    }
+    .input-container{
+        position:relative;
+        margin-top: 3%;
+        width: 130%;
+    }
+    .input-container label{
+        position:absolute;
+        top:0px;
+        left:0px;
+        font-size:150%;
+        color:#008837;
+        transition: all 0.5s ease-in-out;
+    }
+    .input-container input{ 
+    display: inline;
+      border:0;
+      border-radius: 0px;
+      border-bottom:2px solid #015099;  
+      background:transparent;
+      padding:8px 0 5px 0;
+      width: 100%;
+      font-size:16px;
+      color:#015099;
+    }
+   
+    .input-container input:focus{ 
+        border:none;	
+        outline:none;
+        border-bottom:2px solid #015099;
+    }
+    .input-container input:focus ~ label,
+    .input-container input:valid ~ label,
+    .input-container label:hover ~ label{
+        top:-17px;
+        font-size:20px;
+    }
+    input[type="number"]::-webkit-inner-spin-button{
+        appearance: none;
+    }
+    .submitbtn{
+        margin-left: 0px;
+        position: relative;
+        top: 2rem;
+        left: 2rem;
+        padding: 0px;
+        /* wrap */
+        width: 6rem;
+        font-size: 150%;
+        border:0px;
+        color: #008837;
+        background-color: #ffffff;
+        animation: zoomout 0.5s forwards ;
+        
+    }
+    .submitbtn:hover{
+        animation: zoomin 0.3s forwards ;
+        
+    }
+    @keyframes zoomin {
+        100% {
+            color: #008837;
+            border-color: #015099;
+            border-radius: 0%;
+            border-bottom: 2px solid #015099;
+            /* background-color: #015099; */
+            /* box-shadow: 0 0 5px 0 #015099; */
+        }
+        0%{
+            color: #008837;
+        }
+    }
+    @keyframes zoomout {
+        100% {
+            color: #008837;
+        }
+        0% {
+            color: #008837;
+            border-color: #015099;
+            border-radius: 0%;
+            border-bottom: 2px solid #015099;
+        }
+    }
+}

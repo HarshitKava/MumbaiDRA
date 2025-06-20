@@ -1,0 +1,112 @@
+{% extends 'LabourReport/NavbarLR.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static '/css/SLI/SLIAddDayData.css' %}">
+    {% endblock %}
+    {% block LRLink %}<a class="nav-link active" href="{% url 'HomeCLI' %}">Labour Report</a>{% endblock %}
+    {% block PRLink %}<a class="nav-link" href="{% url 'HomeSEProRepo' %}">Productivity Report</a>{% endblock %}
+    {% block content %}
+    <table id='display' >
+      <thead>
+        <tr>
+        <th>Contractor Name</th>
+        <th>Labour Category</th>
+        <th>Category of deployment</th>
+        <th>Structure</th>
+        <th>Deployment</th>
+        <th>Delete</th>
+      </tr>
+      </thead>
+
+      {% for i in Report %}
+      <tr>
+        <!-- <td>{{ i.created_at }}</td>
+        <td>{{ i.Areaname }}</td> -->
+        <td>{{ i.ContractorName }}</td>
+        <td>{{ i.LabourCategory }}</td>
+        <td>{{ i.CategoryName }}</td>
+        <td>{{ i.StructureName }}</td>
+        <td>{{ i.NoLabor }}</td>
+        <td><a href="{% url 'DeleteSE' i.id  %}">Delete</a></td>
+        
+      </tr>
+      {% endfor %}
+      
+        
+    
+    <form action="" id="form" method="POST" data-labour-url="{% url 'ajax_load_labour' %}" data-cat-url="{% url 'ajax_load_cat' %}">
+      {% csrf_token %}
+      <tr>
+        
+      <div style="display: none;">
+        {{form.Areaname}}
+        <p id="ar_id" >{{Areaname_id}}</p>
+      </div>
+      
+      
+          <!-- <td></td> -->
+          
+          <td>{{form.ContractorName}}</td>
+          <td>{{form.LabourCategory}}</td>
+          <td>{{form.CategoryName }}</td>
+          <td>{{form.StructureName}}</td>
+          <td>{{form.NoLabor}}</td>
+        <td><input type="submit" name="submit" class="submitbtn"></td>
+      </tr>
+        
+        
+        
+        
+            
+          
+    </form>
+  </table>
+  {% endblock %}
+  {% block bkbtn %}<a href="{% url 'HomeCLI' %}" class="back">Home</a>{% endblock %}
+  {% block js %}
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script src="{% static '/js/form.js' %}" async defer></script>
+    <script>
+        
+        $("#id_ContractorName").change(function(){
+          const url=$("#form").attr("data-labour-url");
+          const contractorId=$(this).val();
+          // remove all options from the category dropdown
+          $("#id_CategoryName").find('option').not(':first').remove();
+          if(contractorId==""){
+            $("#id_LabourCategory").find('option').not(':first').remove();
+          }
+          else{
+              $.ajax({
+                url:url,
+                data:{
+                  'contractor_id':contractorId
+                },
+                success:function(data){
+                  $("#id_LabourCategory").html(data);
+                }
+              });
+            }
+        })
+        $("#id_LabourCategory").change(function(){
+          const url=$("#form").attr("data-cat-url");
+          const contractorId=$(this).val();
+          if(contractorId==""){
+            $("#id_CategoryName").find('option').not(':first').remove();
+          }
+          else{
+            $.ajax({
+              url:url,
+              data:{
+                'contractor_id':contractorId
+              },
+              success:function(data){
+                $("#id_CategoryName").html(data);
+              }
+            });
+          }
+          
+        })
+
+    </script>
+  {% endblock %}

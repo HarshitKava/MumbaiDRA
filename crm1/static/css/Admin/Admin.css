@@ -1,0 +1,303 @@
+body
+{
+
+    background-repeat:no-repeat;
+    background-position: 55% 15%;
+    background-size: 40%;
+    height: 844px;
+}
+.addSE{
+    display: block;
+    background: #a8a8a8;
+    padding: 6% 5% 6% 5%;
+    font-size: 120%;
+    text-align: center;
+    font-weight: bold;
+    line-height: 25px;
+    
+
+    position: absolute;
+    border-radius: 5%;
+    color: #ffffff;
+    background-color: #a8a8a8;
+    top: 25%;
+    left: 35%;
+}
+.addCont{
+    display: block;
+    background: #a8a8a8;
+    padding: 6% 5% 6% 5%;
+    font-size: 120%;
+    text-align: center;
+    font-weight: bold;
+    line-height: 25px;
+
+    position: absolute;
+    border-radius: 5%;
+    color: #ffffff;
+    background-color: #a8a8a8;
+    top: 40%;
+    left: 28%;
+}
+
+.reset{
+    display: block;
+    background: #a8a8a8;
+    padding: 6% 6% 6% 6%;
+    font-size: 120%;
+    text-align: center;
+    font-weight: bold;
+    line-height: 25px;
+
+    position: absolute;
+    border-radius: 5%;
+    color: #ffffff;
+    background-color: #a8a8a8;
+    top: 70%;
+    left: 21%;
+}
+.addCat{
+    display: block;
+    background: #a8a8a8;
+    padding: 6% 5% 6% 5%;
+    font-size: 120%;
+    text-align: center;
+    font-weight: bold;
+    line-height: 25px;
+
+    position: absolute;
+    border-radius: 5%;
+    color: #ffffff;
+    background-color: #a8a8a8;
+    top: 55%;
+    left: 22.5%;
+}
+/* .namebar{
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    font-size: 200%;
+    background: #a8a8a8;
+}
+.bkbtn{
+    float: right;
+    font-size: 100%;
+    border: 0px;
+    color: #ffffff;
+    background-color: #a8a8a8;
+}
+
+#navbar{
+    overflow: hidden;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    font-size: 200%;
+    background: #a8a8a8;
+}
+#date{
+    display: inline;
+    margin-left: 2%;
+}
+#extra{
+    margin-top: 200%;
+    margin-left: 30%;
+    float: bottom;
+    visibility: hidden;
+}
+
+/* Style the navigation menu */
+/* .topnav {
+  overflow: hidden;
+  background-color: #d6d6d6;
+  position: relative;
+} */
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+/* .topnav #myLinks {
+  display: none;
+} */
+
+/* Style navigation menu links */
+/* .topnav a {
+  color: black;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 150%;
+  display: block;
+} */
+
+/* Style the hamburger menu */
+/* .topnav a.icon {
+  background: #a8a8a8;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+} */
+
+/* Add a grey background color on mouse-over */
+/* .topnav a:hover {
+  background-color: #a8a8a8;
+  color: #d6d6d6;
+} */
+
+/* Style the active link (or home/logo) */
+
+
+@media only screen and (min-width: 600px) {
+    /* for desktop*/
+    body
+    {   
+    
+        background-repeat:no-repeat;
+        background-position: 53% 15%;
+        background-size: 20%;
+        height: 700px;
+    }
+
+    .addArea{
+        display: block;
+        padding: 2% 3%;
+        font-size: 120%;
+        text-align: center;
+        font-weight: bold;
+        line-height: 25px;
+
+        position: absolute;
+        border-radius: 5%;
+        color: #ffffff;
+        background-color: #015099;
+        top: 40%;
+        left: 28%;
+        animation: zoomout 0.7s forwards ;
+    }
+
+    .addSE{
+        display: block;
+        padding: 2% 3%;
+        font-size: 120%;
+        text-align: center;
+        font-weight: bold;
+        line-height: 25px;
+
+        position: absolute;
+        border-radius: 5%;
+        color: #ffffff;
+        background-color: #015099;
+        top: 40%;
+        left: 14%;
+        animation: zoomout 0.7s forwards ;
+
+    }
+    .addCatDeploy{
+        display: block;
+        padding: 2% 3%;
+        font-size: 120%;
+        text-align: center;
+        font-weight: bold;
+        line-height: 25px;
+
+        position: absolute;
+        border-radius: 5%;
+        color: #ffffff;
+        background-color: #015099;
+        top: 40%;
+        left: 43%;
+        animation: zoomout 0.7s forwards ;
+
+    }
+    .addSE:hover ,.addCatDeploy:hover , .LabToCont:hover , .addCat:hover , .reset:hover, .addCont:hover{
+        color: white;
+        text-decoration: none;
+        animation: zoomin 0.7s forwards ;
+        /* delay */
+        
+    }
+    @keyframes zoomin {
+        50% {
+            transform: scale(1.3);
+            background-color: #008837;
+            box-shadow: 0 0 25px 0 #015099;
+        }
+        100% {
+            transform: scale(1.2);
+            background-color: #008837;
+            box-shadow: 0 0 25px 0 #015099;
+        }
+    }
+    @keyframes zoomout {
+        100% {
+            transform: scale(1);
+        }
+        0% {
+            transform: scale(1.2);
+            background-color: #008837;
+            box-shadow: 0 0 10px 0 #015099;
+        }
+    }
+    .LabToCont{
+        display: block;
+        padding: 2% 3%;
+        font-size: 120%;
+        text-align: center;
+        font-weight: bold;
+        line-height: 25px;
+
+        position: absolute;
+        border-radius: 5%;
+        color: #ffffff;
+        background-color: #015099;
+        top: 65%;
+        left: 39%;
+        animation: zoomout 0.7s forwards ;
+    }
+    .addCont{
+        display: block;
+        padding: 2% 3%;
+        font-size: 120%;
+        text-align: center;
+        font-weight: bold;
+        line-height: 25px;
+
+        position: absolute;
+        border-radius: 5%;
+        color: #ffffff;
+        background-color: #015099;
+        top: 40%;
+        left: 73%;
+        animation: zoomout 0.7s forwards ;
+    }
+    .reset{
+        display: block;
+        padding: 2% 3%;
+        font-size: 120%;
+        text-align: center;
+        font-weight: bold;
+        line-height: 25px;
+
+        position: absolute;
+        border-radius: 5%;
+        color: #ffffff;
+        background-color: #015099;
+        top: 65%;
+        left: 12%;
+        animation: zoomout 0.7s forwards ;
+    }
+    .addCat{
+        display: block;
+        padding: 2% 3%;
+        font-size: 120%;
+        text-align: center;
+        font-weight: bold;
+        line-height: 25px;
+
+        position: absolute;
+        border-radius: 5%;
+        color: #ffffff;
+        background-color: #015099;
+        top: 65%;
+        left: 71%;
+        animation: zoomout 0.7s forwards ;
+    }
+}

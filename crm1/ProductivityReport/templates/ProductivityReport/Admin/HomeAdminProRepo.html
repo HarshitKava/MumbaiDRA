@@ -1,0 +1,15 @@
+{% extends 'ProductivityReport/NavbarPR.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/Admin/Admin.css' %}">
+{% endblock %}
+{% block content %}
+    <a href="{% url 'AddActivity' %}" class="addSE">Category of Deployment</a>
+    <a href="{% url 'AddStructure' %}" class="addCont">Structure</a>
+    <a href="{% url 'AddLabours' %}" class="addCat">Add Type of Labour</a>
+    <a href="{% url 'LabourOfContractor' %}" class="LabToCont">Add Labour with Contractor</a>
+    <a href="{% url 'ResetPassword' %}" class="reset">Reset User Password</a>
+{% endblock %}
+{% block js %}
+<script src="{% static '/js/Admin/admin.js' %}" async defer></script>
+{% endblock %}

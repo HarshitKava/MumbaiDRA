@@ -1,0 +1,135 @@
+{% extends 'ProductivityReport/NavbarPR.html' %}
+{% load static %}
+{% block css %}
+        <link rel="stylesheet" href="{% static '/css/SiteEngAddProRepo.css' %}">
+{% endblock %}
+{% block LRLink %}<a class="nav-link " href="{% url 'HomeSE' %}">Labour Report</a>{% endblock %}
+{% block PRLink %}<a class="nav-link active " href="{% url 'HomeSEProRepo' %}">Productivity Report</a>{% endblock %}
+{% block content %}    
+  <table id='display' style='font-size:100%; margin-bottom: 10%; margin-top: 5%;'>
+      <tr style="position: sticky; top: 7%; " >
+        <th>Structure</th>
+        <th>Length</th>
+        <th>Breadth</th>
+        <th>Depth</th>
+        <th>Quantity</th>
+        <th>Delete</th>
+      </tr>
+      {% for i in Report %}
+      <tr>
+        <td>{{i.StructureName}}</td>
+        <td>{{i.Length}}</td>
+        <td>{{i.Breadth}}</td>
+        <td>{{i.Depth}}</td>
+        <td>{{i.Quantity}}</td>
+        <td><a href="{% url 'SEDelNightProRepo' i.id %}">Delete</a></td>
+      </tr>
+      {% endfor %}
+      
+    <form action="" id="form" method="POST" data-labour-ProRepo-url="{% url 'ajax_load_ProRepo_labour' %}" data-category-url="{% url 'ajax_load_category' %}">
+      {% csrf_token %}
+      <tr>
+        <td style="display: none;">{{Form.Areaname}}<p id="ar_id" >{{Areaname_id}}</p></td>
+        <td>{{Form.StructureName}}</td>
+        <td>{{Form.Length}}</td>
+        <td>{{Form.Breadth}}</td>
+        <td id="depth"><span id="depthinput" style="display: block;">{{Form.Depth}}</span><span id="depthstatic" style="display: none;">1</span></td>
+        <td><span id="quantityinput" style="display: none;">{{Form.Quantity}}</span><span id="quantitystatic" style="display: block;">1</span></td>
+        <td><input type="submit" name="submit" class="submitbtn"></td>
+      </tr>
+    </form>
+  </table>
+  {% endblock %}
+  {% block back %}
+  <a href="{% url 'HomeSEProRepo' %}" class="back">Home</a>
+  {% endblock %}
+  {% block js %}
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="{% static '/js/form.js' %}" async defer></script>
+    <script>
+        var id_CategoryName = document.getElementById("id_CategoryName");
+        id_CategoryName.innerHTML = "<option value=''>----------</option>";
+
+        $("#id_Length").change(function(){
+          var length = $("#id_Length").val();
+          var breadth = $("#id_Breadth").val();
+          var depth = $("#id_Depth").val();
+          var quantity = length*breadth*depth;
+          $("#id_Quantity").val(quantity);
+          $("#quantitystatic").text(quantity);
+        });
+        $("#id_Breadth").change(function(){
+          var length = $("#id_Length").val();
+          var breadth = $("#id_Breadth").val();
+          var depth = $("#id_Depth").val();
+          var quantity = length*breadth*depth;
+          $("#id_Quantity").val(quantity);
+          $("#quantitystatic").text(quantity);
+        });
+        $("#id_Depth").change(function(){
+          var length = $("#id_Length").val();
+          var breadth = $("#id_Breadth").val();
+          var depth = $("#id_Depth").val();
+          var quantity = length*breadth*depth;
+          $("#id_Quantity").val(quantity);
+          $("#quantitystatic").text(quantity);
+        });
+        $("#id_ContractorName").change(function(){
+          $("#depthinput").css("display", "block");
+          $("#depthstatic").css("display", "none");
+          
+          const url=$("#form").attr("data-labour-ProRepo-url");
+          const contractorId=$(this).val();
+          $.ajax({
+            url:url,
+            data:{
+              'contractor_id':contractorId
+            },
+            success:function(data){
+              $("#id_ActivityName").html(data);
+            }
+          });
+        })
+
+        $("#id_ActivityName").change(function(){
+
+          if (selectedText = $("#id_ActivityName option:selected").text() == "Carpenter"){
+            $("#depthinput").css("display", "none");
+            $("#depthstatic").css("display", "block");
+          }
+          else{
+            $("#depthinput").css("display", "block");
+            $("#depthstatic").css("display", "none");
+          }
+          
+          var selectedText = $("#id_ActivityName option:selected").text();
+          $("#id_ActivityNameBeta option").each(function(){
+            if ($(this).text() == selectedText){
+              $(this).attr("selected", "selected");
+            }
+          
+            const url=$("#form").attr("data-category-url");
+            const ActivityId=$("#id_ActivityNameBeta").val();
+            $.ajax({
+              url:url,
+              data:{
+                'activity_id':ActivityId
+              },
+              success:function(data){
+                $("#id_CategoryName").html(data);
+              }
+            });
+          
+          });
+          
+          
+          
+
+          
+        })
+
+    </script>
+  {% endblock %}

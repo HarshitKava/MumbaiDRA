@@ -1,0 +1,42 @@
+{% extends 'ProductivityReport/NavbarPR.html' %}
+{% load static %}
+{% block css %}
+        <link rel="stylesheet" href="{% static '/css/SiteEngAddProRepo.css' %}">
+{% endblock %}
+{% block LRLink %}<a class="nav-link " href="{% url 'HomeSE' %}">Labour Report</a>{% endblock %}
+{% block PRLink %}<a class="nav-link active " href="{% url 'HomeSEProRepo' %}">Productivity Report</a>{% endblock %}
+{% block content %}    
+  <table id='display' style='font-size:100%; margin-bottom: 10%; margin-top: 5%;'>
+      <tr style="position: sticky; top: 7%; " >
+        <th>Date and Time</th>
+        <th>Structure</th>
+        <th>Length</th>
+        <th>Breadth</th>
+        <th>Depth</th>
+        <th>Quantity</th>
+      </tr>
+      {% if Report %}
+      {% for i in Report %}
+      <tr>
+        <td>{{ i.created_at }}</td>
+        <td>{{i.StructureName}}</td>
+        <td>{{i.Length}}</td>
+        <td>{{i.Breadth}}</td>
+        <td>{{i.Depth}}</td>
+        <td>{{i.Quantity}}</td>
+      </tr>
+      {% endfor %}
+      {% else %}
+      <tr>
+        <td colspan="7" align="center">No Data</td>
+      </tr>
+      {% endif %}
+  </table>
+  {% endblock %}
+  {% block back %}
+  <a href="{% url 'HomeSEProRepo' %}" class="back">Home</a>
+  {% endblock %}
+  {% block js %}
+   <script src="{% static '/js/form.js' %}" async defer></script>
+    
+  {% endblock %}

@@ -1,0 +1,294 @@
+body
+{
+    background-image: url(https://www.urcindia.com/img/new_logo.svg);
+    background-repeat:no-repeat;
+    background-position: 54% 15%;
+    background-size: 40%;
+    height: 844px;
+}
+.namebar{
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    font-size: 200%;
+    background: #a8a8a8;
+}
+
+#navbar{
+    overflow: hidden;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    font-size: 200%;
+    background: #a8a8a8;
+}
+#date{
+    display: inline;
+    margin-left: 2%;
+}
+.bkbtn{
+    float: right;
+    margin-right: 2%;
+    border: 0px;
+    color: #ffffff;
+    background-color: #a8a8a8;
+}
+.siteReport{
+    position: absolute;
+    margin-top: 50%;
+    margin-left: 26%;
+    -webkit-border-radius: 4;
+    -moz-border-radius: 4;
+    border-radius: 4px;
+    -webkit-box-shadow: 6px 6px 15px #bfbbbf;
+    -moz-box-shadow: 6px 6px 15px #bfbbbf;
+    box-shadow: 6px 6px 15px #bfbbbf;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 195%;
+    background: #a8a8a8;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+.siteReport:hover {
+    background: #575457;
+    text-decoration: none;
+}
+.finalReport{
+    position: absolute;
+    margin-top: 100%;
+    margin-left: 24%;
+    -webkit-border-radius: 4;
+    -moz-border-radius: 4;
+    border-radius: 4px;
+    -webkit-box-shadow: 6px 6px 15px #bfbbbf;
+    -moz-box-shadow: 6px 6px 15px #bfbbbf;
+    box-shadow: 6px 6px 15px #bfbbbf;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 195%;
+    background: #a8a8a8;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+.finalReport:hover {
+    background: #575457;
+    text-decoration: none;
+}
+
+#extra{
+    margin-top: 200%;
+    margin-left: 30%;
+    visibility: hidden;
+}
+#delbtn:hover {
+    background: #575457;
+    text-decoration: none;
+}
+
+/* Style the navigation menu */
+.topnav {
+  overflow: hidden;
+  background-color: #d6d6d6;
+  position: relative;
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.topnav #myLinks {
+  display: none;
+}
+
+/* Style navigation menu links */
+.topnav a {
+  color: black;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 150%;
+  display: block;
+}
+
+/* Style the hamburger menu */
+.topnav a.icon {
+  background: #a8a8a8;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* Add a grey background color on mouse-over */
+.topnav a:hover {
+  background-color: #a8a8a8;
+  color: #ffffff;
+}
+
+/* Style the active link (or home/logo) */
+.active {
+  background-color: #a8a8a8;
+  color: balck;
+}
+@media only screen and (min-width: 600px) {
+    /* for desktop*/
+    body
+    {
+        background-image: url(https://www.urcindia.com/img/new_logo.svg);
+        background-repeat:no-repeat;
+        background-position: 53% -150%;
+        background-size: 20%;
+        height: 0%;
+    }
+    .namebar{
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        font-size: 200%;
+        background: #a8a8a8;
+    }
+
+    #navbar{
+        overflow: hidden;
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        font-size: 200%;
+        background: #a8a8a8;
+    }
+    #date{
+        display: inline;
+        margin-left: 1%;
+    }
+    .bkbtn{
+        float: right;
+        margin-right: 1%;
+        border: 0px;
+        color: #ffffff;
+        background-color: #a8a8a8;
+    }
+    .siteReport{
+        position: absolute;
+        margin-top: 20%;
+        margin-left: 19%;
+        -webkit-border-radius: 4;
+        -moz-border-radius: 4;
+        border-radius: 4px;
+        -webkit-box-shadow: 6px 6px 15px #bfbbbf;
+        -moz-box-shadow: 6px 6px 15px #bfbbbf;
+        box-shadow: 6px 6px 15px #bfbbbf;
+        font-family: Arial;
+        color: #ffffff;
+        font-size: 195%;
+        background: #a8a8a8;
+        padding: 10px 20px 10px 20px;
+        text-decoration: none;
+    }
+    .siteReport:hover {
+        color: #ffffff;
+        background: #575457;
+        text-decoration: none;
+    }
+    .finalReport{
+        position: absolute;
+        margin-top: 20%;
+        margin-left: 70%;
+        -webkit-border-radius: 4;
+        -moz-border-radius: 4;
+        border-radius: 4px;
+        -webkit-box-shadow: 6px 6px 15px #bfbbbf;
+        -moz-box-shadow: 6px 6px 15px #bfbbbf;
+        box-shadow: 6px 6px 15px #bfbbbf;
+        font-family: Arial;
+        color: #ffffff;
+        font-size: 195%;
+        background: #a8a8a8;
+        padding: 10px 20px 10px 20px;
+        text-decoration: none;
+    }
+    .finalReport:hover {
+        color: #ffffff;
+        background: #575457;
+        text-decoration: none;
+    }
+
+    #extra{
+        margin-top: 0%;
+        margin-left: 30%;
+        visibility: hidden;
+    }
+    #delbtn:hover {
+        background: #575457;
+        text-decoration: none;
+    }
+
+    /* Style the navigation menu */
+    .topnav {
+        overflow: hidden;
+        background-color: #d6d6d6;
+        position: relative;
+    }
+
+    /* Hide the links inside the navigation menu (except for logo/home) */
+    .topnav #myLinks {
+        display: none;
+        color: white;
+    }
+
+    /* Style navigation menu links */
+    .topnav a {
+        color: black;
+        padding: 11px 16px;
+        text-decoration: none;
+        font-size: 150%;
+        display: block;
+    }
+
+    /* Style the hamburger menu */
+    .topnav a.icon {
+        background: #a8a8a8;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .topnav a.icon
+    
+
+    /* Add a grey background color on mouse-over */
+    .topnav a:hover {
+        background-color: #a8a8a8;
+        color: white;
+    }
+
+  .siteReport, .finalReport{
+      color: #ffffff;
+      background-color: #015099;
+      animation: zoomout 0.7s forwards ;
+
+}
+.siteReport:hover, .finalReport:hover{
+  animation: zoomin 0.7s forwards ;
+}
+@keyframes zoomin {
+  50% {
+      transform: scale(1.3);
+      background-color: #008837;
+      box-shadow: 0 0 25px 0 #015099;
+  }
+  100% {
+      transform: scale(1.2);
+      background-color: #008837;
+      box-shadow: 0 0 25px 0 #015099;
+  }
+}
+@keyframes zoomout {
+  100% {
+      transform: scale(1);
+  }
+  0% {
+      transform: scale(1.2);
+      background-color: #008837;
+      box-shadow: 0 0 10px 0 #015099;
+  }
+}
+  
+}

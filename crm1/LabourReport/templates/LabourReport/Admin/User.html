@@ -1,0 +1,59 @@
+{% extends 'LabourReport/NavbarLR.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/Admin/User.css'%}">
+{% endblock %}
+{% block content %}
+<center>
+  <div >
+<form action="" method="post">
+  {% csrf_token %}
+
+  
+  <div class="input-container">
+    {{form1.username}}
+    <label>User Name</label>
+  </div>
+  <div class="input-container">
+    {{form1.email}}
+    <label>Email-Id</label>
+  </div>
+  <div style="margin-top: 1%;" class="input-container select">
+    <label>Select Role</label>
+    {{form1.groups}}
+  </div>
+  <div style="margin-top: 1%;" class="input-container select">
+    <label>Select Area:</label>
+    {{form2.AreaName}}
+  </div>
+<div style="display: none;">
+  {{form1.password1}}
+  {{form1.password2}}
+  {{form2.Username}}
+</div>
+<input type="submit" class="submitbtn" value="Add User" >
+
+</form>
+</div>
+<div id="data">
+  <table>
+    <tr style="position: sticky; width:100%;top:0%;background-color: rgb(236, 255, 255);">
+      <th>User Name</th>
+      <th>Email-Id</th>
+      <th>Role</th>
+    </tr>
+    {% for i in User_data %}
+    <tr>
+      <td>{{i.username}}</td>
+      <td>{{i.email}}</td>
+      <td>{{i.groups.all.0}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+</center>
+{% endblock %}
+{% block bkbtn %}<a href="{% url 'HomeAdmin' %}" class="back">Home</a>{% endblock %}
+{% block js %}
+<script src="{% static '/js/Admin/User.js' %}"></script>
+{% endblock %}

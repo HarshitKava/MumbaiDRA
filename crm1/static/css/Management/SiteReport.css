@@ -1,0 +1,238 @@
+body
+{
+    background-image: url(https://www.urcindia.com/img/new_logo.svg);
+    background-repeat:no-repeat;
+    background-position: 50% 15%;
+    background-size: 40%;
+    height: 844px;
+}
+button:hover {
+    background: #575457;
+    text-decoration: none;
+}
+input{
+    font-size: 120%;
+    background-color:#d7d5d5;
+}
+form{
+    position: absolute;
+    font-size: 200%;
+    margin-top: 50%;
+    margin-left: 5%;
+}
+
+.bkbtn{
+    float: right;
+    margin-right: 2%;
+    border: 0px;
+    color: #ffffff;
+    background-color: #a8a8a8;
+}
+.namebar{
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    font-size: 200%;
+    background: #a8a8a8;
+}
+#navbar{
+    overflow: hidden;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    font-size: 200%;
+    background: #a8a8a8;
+}
+#daten{
+    width: 100% ;
+    display: inline;
+    margin-left: 0%;
+}
+#date{
+    width: 65% ;
+    display: inline;
+    margin-left: 2%;
+}
+@media only screen and (min-width: 600px) {
+    /* for desktop*/
+    body
+    {
+        background-image: url(https://www.urcindia.com/img/new_logo.svg);
+        background-repeat:no-repeat;
+        background-position: 53% 15%;
+        background-size: 20%;
+        height: 700px;
+    }
+    button:hover {
+        background: #575457;
+        text-decoration: none;
+    }
+    input{
+        font-size: 120%;
+        background-color:#d7d5d5;
+    }
+    form{
+        position: absolute;
+        margin-top: 12%;
+        margin-left: 41%;
+    }
+
+    .bkbtn{
+        float: right;
+        margin-right: 1%;
+        border: 0px;
+        color: #ffffff;
+        background-color: #a8a8a8;
+    }
+    .input-container.select label{
+        position:relative;
+        float: left;
+        font-size:100%;
+        color:#008837;
+        transition: all 0.5s ease-in-out;
+    }
+    .input-container select{ 
+        display: block;
+          border:0;
+          width: 100%;
+          border-bottom:2px solid #015099;  
+          background:transparent;
+          padding:8px 0 5px 0;
+          box-shadow: none;
+          font-size:16px;
+          color:#015099;
+          border-radius: 0px;
+        }
+    .input-container.select select option{
+        color: #008837;
+    }
+    .input-container.select select:hover, .input-container input:hover{
+        animation: hover forwards 0.7s;
+    }
+    @keyframes hover {
+        50%{
+            border-color:#008837;
+            scale: 1.1;
+        }
+        100%{
+            border-color:#015099;
+            scale: 1;
+        }
+    }
+    .input-container{
+        position:relative;
+        margin-top: 10%;
+        width: 225%;
+    }
+    .input-container label{
+        position:absolute;
+        top:0px;
+        left:0px;
+        font-size:100%;
+        color:#008837;
+        transition: all 0.5s ease-in-out;
+    }
+    .input-container input{ 
+      border:0;
+      width: 200%;
+      border-bottom:2px solid #015099;  
+      background:transparent;
+      padding:8px 0 5px 0;
+      margin-top: 6%;
+      font-size:16px;
+      color:#015099;
+    }
+   
+    .input-container input:focus{ 
+        border:none;	
+        outline:none;
+        border-bottom:2px solid #015099;
+    }
+    .input-container input:focus ~ label,
+    .input-container input:valid ~ label{
+        top:-15px;
+        font-size:30px;
+        
+        
+    }
+    .submitbtn{
+        position: relative;
+        top: 2rem;
+        left: 5rem;
+        font-size: 100%;
+        border:0px;
+        color: #008837;
+        background-color: #ffffff;
+        animation: zoomout 0.5s forwards ;
+        margin-left: 0px;
+    }
+    .submitbtn:hover{
+        animation: zoomin 0.5s forwards ;
+        
+        
+    }
+    input[type=date]:required:invalid::-webkit-datetime-edit {
+        color: transparent;
+    }
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        background: transparent;
+        bottom: 0;
+        color: transparent;
+        cursor: pointer;
+        height: auto;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: auto;
+    }
+    @keyframes zoomin {
+        100% {
+            color: #008837;
+            border-color: #015099;
+            border-radius: 0%;
+            border-bottom: 2px solid #015099;
+            /* background-color: #015099; */
+            /* box-shadow: 0 0 5px 0 #015099; */
+        }
+        0%{
+            color: #008837;
+        }
+    }
+    @keyframes zoomout {
+        100% {
+            color: #008837;
+        }
+        0% {
+            color: #008837;
+            border-color: #015099;
+            border-radius: 0%;
+            border-bottom: 2px solid #015099;
+        }
+    }
+    .namebar{
+        overflow: hidden;
+        position: absolute;
+        width: 100%;
+        font-size: 200%;
+        background: #a8a8a8;
+    }
+    #navbar{
+        overflow: hidden;
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        font-size: 200%;
+        background: #a8a8a8;
+    }
+    #daten{
+        width:100%;
+        display: inline;
+        margin-left: 0%;
+    }
+    #date{
+        width: 65% ;
+        display: inline;
+        margin-left: 1%;
+    }
+}

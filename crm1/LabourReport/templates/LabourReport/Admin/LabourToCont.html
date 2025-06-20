@@ -1,0 +1,25 @@
+{% extends 'LabourReport/NavbarLR.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/Admin/LabourToCont.css' %}">
+{% endblock %}
+{% block content %}
+<center>
+<form  method="post" >
+  {% csrf_token %}
+  <div style="margin-top: 1%;" class="input-container select">
+    <label>Contractor Name:</label>
+    {{form.ContractorName}}
+  </div>
+  <div style="margin-top: 1%;" class="input-container select">
+    <label>Labour Category:</label>
+    {{form.LabourCategory}}
+  </div>
+  <input type="submit" class="submitbtn">
+</form>
+</center>
+{% endblock %}
+{% block bkbtn %}<a href="{% url 'HomeAdmin' %}" class="back">Home</a>{% endblock %}
+{% block js %}
+<script src="{% static '/js/Admin/LabourToCont.js' %}"></script>
+{% endblock %}

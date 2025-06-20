@@ -1,0 +1,21 @@
+{% extends 'LabourReport/NavbarLR.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/Admin/Labour.css' %}">
+{% endblock %}
+{% block content %}
+<center>
+<form  method="post" >
+  {% csrf_token %}
+  <div class="input-container">
+    {{form.LabourCategory}}
+    <label>Labour Category</label>
+  </div>
+  <input type="submit" class="submitbtn">
+</form>
+</center>
+{% endblock %}
+{% block bkbtn %}<a href="{% url 'HomeAdmin' %}" class="back">Home</a>{% endblock %}
+{% block js %}
+<script src="{% static '/js/Admin/Labour.js' %}"></script>
+{% endblock %}

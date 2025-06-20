@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Cache-control" content="public">
+        <title>URC Construction</title>
+        <link rel="icon" type="image/x-icon" href="https://www.urcindia.com/img/favicon.ico">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static '/css/index.css' %}">
+    </head>
+    <body>
+        <img id="logo" src="https://www.urcindia.com/img/new_logo.svg" alt="">
+        <div style="position: relative;" id="mn">
+            <form method="post">
+                <h2>Labour Report</h2>
+                {% csrf_token %}
+                
+                <h3>Enter your id:</h3>
+                <input required id="userid" type="text" name="userid"placeholder="Employee Id">
+                <h3>Enter Password:</h3>
+                <input required id="pass" type="password" name="pass"placeholder="Password Here">
+                {% for msg in messages%}
+                    <p style="color:red;">{{msg}}</p>
+                {% endfor %}
+                <button class="login">Log in</button>
+
+                
+            </form>
+            <a style="position: absolute; right:0px;" id="forgetPass" href="{% url 'reset_password' %}">Forget Password?</a>
+        </div>
+        <script src=""></script>
+        
+    </body>
+</html>
