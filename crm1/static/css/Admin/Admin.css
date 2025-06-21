@@ -1,4 +1,20 @@
+/* .addWA{
+        display: block;
+        padding: 0% 0%;
+        font-size: 105%;
+        text-align: center;
+        font-weight: bold;
+        line-height: 25px;
 
+        position: absolute;
+        border-radius: 10px;
+        color: #ffffff;
+        background-color: #015099;
+        top: 10%;
+        left: 63.5%;
+        animation: zoomout 0.7s forwards ;
+
+    }
 .addSE{
     display: block;
     background: #a8a8a8;
@@ -64,7 +80,7 @@
     background-color: #a8a8a8;
     top: 55%;
     left: 22.5%;
-}
+} */
 /* .namebar{
     overflow: hidden;
     position: absolute;
@@ -151,10 +167,10 @@
         box-shadow: 0 0 10px 0 #015099;
     }
 
-    .addSE{
+    /* .addWA{
         display: block;
-        padding: 1% 1.5%;
-        font-size: 105%;
+        padding: 1% 1%;
+        font-size: 95%;
         text-align: center;
         font-weight: bold;
         line-height: 25px;
@@ -164,14 +180,31 @@
         color: #ffffff;
         background-color: #015099;
         top: 10%;
-        left: 15%;
+        left: 22%;
+        animation: zoomout 0.7s forwards ;
+
+    }
+    .addSE{
+        display: block;
+        padding: 1% 1%;
+        font-size: 95%;
+        text-align: center;
+        font-weight: bold;
+        line-height: 25px;
+
+        position: absolute;
+        border-radius: 10px;
+        color: #ffffff;
+        background-color: #015099;
+        top: 10%;
+        left: 14%;
         animation: zoomout 0.7s forwards ;
 
     }
     .addCatDeploy{
         display: block;
-        padding: 1% 1.5%;
-        font-size: 105%;
+        padding: 1% 1%;
+        font-size: 95%;
         text-align: center;
         font-weight: bold;
         line-height: 25px;
@@ -181,11 +214,17 @@
         color: #ffffff;
         background-color: #015099;
         top: 10%;
-        left: 24%;
+        left: 33.2%;
         animation: zoomout 0.7s forwards ;
 
+    } */
+
+    .addSE, .addCatDeploy , .LabToCont , .addCat , .reset, .addCont, .addWA{
+        
     }
-    .addSE:hover ,.addCatDeploy:hover , .LabToCont:hover , .addCat:hover , .reset:hover, .addCont:hover{
+
+
+    .addSE:hover ,.addCatDeploy:hover , .LabToCont:hover , .addCat:hover , .reset:hover, .addCont:hover, .addWA:hover{
         color: white;
         text-decoration: none;
         animation: zoomin 0.7s forwards ;
@@ -194,30 +233,31 @@
     }
     @keyframes zoomin {
         50% {
-            transform: scale(1.3);
+            /* transform: scale(1.3); */
             background-color: #008837;
             box-shadow: 0 0 25px 0 #015099;
         }
         100% {
-            transform: scale(1.2);
+            /* transform: scale(1.2); */
             background-color: #008837;
             box-shadow: 0 0 25px 0 #015099;
         }
     }
     @keyframes zoomout {
         100% {
-            transform: scale(1);
+            /* transform: scale(1); */
         }
         0% {
-            transform: scale(1.2);
+            /* transform: scale(1.2); */
             background-color: #008837;
             box-shadow: 0 0 10px 0 #015099;
         }
     }
-    .LabToCont{
+    
+    /* .LabToCont{
         display: block;
-        padding: 1% 1.5%;
-        font-size: 105%;
+        padding: 1% 1%;
+        font-size: 95%;
         text-align: center;
         font-weight: bold;
         line-height: 25px;
@@ -227,13 +267,13 @@
         color: #ffffff;
         background-color: #015099;
         top: 10%;
-        left: 63.5%;
+        left: 69.2%;
         animation: zoomout 0.7s forwards ;
     }
     .addCont{
         display: block;
-        padding: 1% 1.5%;
-        font-size: 105%;
+        padding: 1% 1%;
+        font-size: 95%;
         text-align: center;
         font-weight: bold;
         line-height: 25px;
@@ -243,13 +283,13 @@
         color: #ffffff;
         background-color: #015099;
         top: 10%;
-        left: 36.5%;
+        left: 44.4%;
         animation: zoomout 0.7s forwards ;
     }
     .reset{
         display: block;
-        padding: 1% 1.5%;
-        font-size: 105%;
+        padding: 1% 1%;
+        font-size: 95%;
         text-align: center;
         font-weight: bold;
         line-height: 25px;
@@ -259,13 +299,13 @@
         color: #ffffff;
         background-color: #015099;
         top: 10%;
-        left: 48%;
+        left: 54.9%;
         animation: zoomout 0.7s forwards ;
     }
     .addCat{
         display: block;
-        padding: 1% 1.5%;
-        font-size: 105%;
+        padding: 0.5% 1%;
+        font-size: 95%;
         text-align: center;
         font-weight: bold;
         line-height: 25px;
@@ -275,7 +315,44 @@
         color: #ffffff;
         background-color: #015099;
         top: 10%;
-        left: 82.5%;
+        left: 86.9%;
         animation: zoomout 0.7s forwards ;
+    } */
+    .LinkContainer{
+        position: absolute;
+        top: 10%;
+        left: 14%;
+        height: 8%;
+        width: 86%;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+    }
+    .LinkContainer div{
+        height: 100%;
+        width: 10vw;
+    }
+    .LinkContainer div a{
+        font-size: 95%;
+        font-weight: bold;
+        line-height: 25px;
+        border-radius: 10px;
+        font-size: 105%;
+        padding: 1% 4%;
+        margin: 0% 2%;
+        color: #ffffff;
+        background-color: #015099;
+        box-shadow: 0 0 10px 0 #015099;
+        text-decoration: none;
+        text-align: center;
+        /* align vertical */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
     }
 }

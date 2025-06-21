@@ -13,6 +13,10 @@ urlpatterns = [
     path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(), name="password_reset_complete"),#template_name="LabourReport/password_reset_done.html"
 
     path('Admin/', views.HomeAdmin,name="HomeAdmin"),
+    path('AddWorkArea/', views.AddWorkArea,name="AddWorkArea"),
+    path('EditWorkArea/<i>/', views.EditWorkArea,name="EditWorkArea"),
+    path('DeleteWorkArea/<i>/', views.DeleteWorkArea,name="DeleteWorkArea"),
+    path('ShowWorkArea/', views.ShowWorkArea,name="ShowWorkArea"),
     path('AddUser/', views.AddUser,name="AddUser"),
     path('EditUser/<i>/', views.EditUser,name="EditUser"),
     path('DeleteUser/<i>/', views.DeleteUser,name="DeleteUser"),

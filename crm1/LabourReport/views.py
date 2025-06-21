@@ -354,19 +354,61 @@ def HomeAdmin(request):
     User_data=User.objects.all().order_by('username')
     df = pd.DataFrame(columns=['username','email','group','id'])
     for i in User_data:
-        if i.username != 'harshitkava':
+        if i.username != 'harshitkava' and i.username != 'HarhsitKava':
+            # print(i)
             df.loc[len(df)] = {'username':i.username,'id':i.id,'email':i.email,'group':i.groups.all()[0]}
 
     Area_data=Area.objects.all().order_by('AreaName')
     # Convert to Dataframe
     df1=pd.DataFrame(Area_data.values())
-    df1 = df1[['AreaName','Username']]
+    df1 = pd.DataFrame(columns=['AreaName','Username'])
+    # df1 = df1[['AreaName','Username']]
     # Merge Dataframes
     df2 = pd.merge(df,df1,how='left',left_on='username',right_on='Username')
     # drop Username column
     df2 = df2.drop(['Username'],axis=1)
-    # print(df2)
     return render(request,'LabourReport/Admin/HomeAd.html',{'data':df2})
+
+@login_required(login_url='Login')
+@allowed_users(allowed_roles=['Admin'])
+def AddWorkArea(request):
+    Form=WorkAreaForm()
+    data = WorkArea.objects.all()
+    if request.method=='POST':
+        Form=WorkAreaForm(request.POST)
+        if Form.is_valid():
+            Form.save()
+            return redirect('AddWorkArea')
+    return render(request,'LabourReport/Admin\WorkArea.html',{'Form':Form,'data':data})
+
+@login_required(login_url='Login')
+@allowed_users(allowed_roles=['Admin'])
+def EditWorkArea(request,i):
+    i = float(i)
+    data = WorkArea.objects.get(pk=i)
+    form = WorkAreaForm(request.POST or None,instance=data)
+    if form.is_valid():
+        form.save()
+        return redirect('ShowWorkArea')
+    return render(request,'LabourReport/Admin/EditWorkArea.html',{'Form':form})
+
+@login_required(login_url='Login')
+@allowed_users(allowed_roles=['Admin'])
+def DeleteWorkArea(request,i):
+    i = float(i)
+    data = WorkArea.objects.get(pk=i)
+    data.delete()
+    return redirect('ShowWorkArea')
+
+@login_required(login_url='Login')
+@allowed_users(allowed_roles=['Admin'])
+def ShowWorkArea(request):
+    data = WorkArea.objects.all().order_by('WorkAreaName')
+    df = pd.DataFrame(columns=['WorkAreaName','id'])
+    for i in data:
+        df.loc[len(df)] = {'WorkAreaName':i.WorkAreaName,'id':i.id}
+        # df = df.append({'WorkAreaName':i.WorkAreaName,'id':i.id},ignore_index=True)
+    return render(request,'LabourReport/Admin/ShowWorkArea.html',{'data':df})
 
 @login_required(login_url='Login')
 @allowed_users(allowed_roles=['Admin'])

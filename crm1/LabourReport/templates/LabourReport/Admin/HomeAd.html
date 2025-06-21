@@ -7,7 +7,7 @@
           display: block;
           top: 0;
           left: 0;
-          width: 210px;
+          width: 14vw;
           height: 90vh;
           color: #000;
           background-color: #fff;
@@ -114,21 +114,25 @@
 {% endblock %}
 {% block content %}
   <div class="sidebar">
-        <img height="13%" src="https://www.urcindia.com/img/new_logo.svg" alt="">
+        <img height="13%" src="" alt="">
         <br><br>
-        <a href="{% url 'HomeAdmin' %}"class="sidebar-item active" >User</a>
+        <a href="{% url 'HomeAdmin' %}" class="sidebar-item active" >User</a>
+        <a href="{% url 'ShowWorkArea' %}">Work Area</a>
         <a href="{% url 'Contractor' %}" >Contractor</a>
         <a href="{% url 'ShowStructure' %}" >Structure</a>
         <a href="{% url 'ShowLabours' %}" >Labour Category</a>
         <a href="{% url 'ShowLabourOfContractor' %}" >Labour with Contractor</a>
         <a href="{% url 'ShowActivity' %}" >Deployment Category</a>
   </div>
-    <a href="{% url 'AddUser' %}" class="addSE">Add User</a>
-    <a href="{% url 'AddContractor' %}" class="addCatDeploy">Add Contractor</a>  
-    <a href="{% url 'AddStructure' %}" class="addCont">Add Structure</a>
-    <a href="{% url 'AddLabours' %}" class="reset">Add Labour Category</a>
-    <a href="{% url 'LabourOfContractor' %}" class="LabToCont">Add Labour with Contractor</a>
-    <a href="{% url 'AddActivity' %}" class="addCat">Category of Deployment</a>
+    <div class="LinkContainer">
+      <div><a href="{% url 'AddWorkArea' %}" class="addWA">Add Work Area</a></div>
+      <div><a href="{% url 'AddUser' %}" class="addSE">Add User</a></div>
+      <div><a href="{% url 'AddContractor' %}" class="addCatDeploy">Add Contractor</a>  </div>
+      <div><a href="{% url 'AddStructure' %}" class="addCont">Add Structure</a></div>
+      <div><a href="{% url 'AddLabours' %}" class="reset">Add Labour Category</a></div>
+      <div><a href="{% url 'LabourOfContractor' %}" class="LabToCont">Add Labour with Contractor</a></div>
+      <div><a href="{% url 'AddActivity' %}" class="addCat">Category of Deployment</a></div>
+    </div>
     <div id="DataDisplay" >
       <div id="data">
         <table>

@@ -1,0 +1,34 @@
+{% extends 'LabourReport/NavbarLR.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/Admin/Labour.css' %}">
+{% endblock %}
+{% block content %}
+<center>
+    Work Area
+<form  method="post" >
+  {% csrf_token %}
+  <div class="input-container">
+    {{Form.WorkAreaName}}
+    <label style="z-index:-1;">Work Area Name</label>
+  </div>
+  <input type="submit" class="submitbtn">
+</form>
+<div id="data">
+  <table>
+    <tr style="position: sticky; width:100%;top:0%;background-color: rgb(236, 255, 255);">
+      <th>Work Area Name</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>{{i.WorkAreaName}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+</center>
+{% endblock %}
+{% block bkbtn %}<a href="{% url 'HomeAdmin' %}" class="back">Home</a>{% endblock %}
+{% block js %}
+<script src="{% static '/js/Admin/Labour.js' %}"></script>
+{% endblock %}

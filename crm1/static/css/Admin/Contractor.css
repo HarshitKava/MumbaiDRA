@@ -1,6 +1,6 @@
 body
 {
-    background-image: url(https://www.urcindia.com/img/new_logo.svg);
+    background-image: url();
     background-repeat:no-repeat;
     background-position: 50% 15%;
     background-size: 40%;
@@ -68,7 +68,7 @@ td{
 @media only screen and (min-width: 600px) {
     body
     {
-        background-image: url(https://www.urcindia.com/img/new_logo.svg);
+        background-image: url();
         background-repeat:no-repeat;
         background-position: 50% 15%;
         background-size: 20%;

@@ -3,9 +3,8 @@ from django.shortcuts import redirect
 
 def unauthenticated_user(view_func):
     def wrapper_func(request, *args, **kwargs):
+        # fetch the user groups
         if request.user.is_authenticated:
-            print(request.user.groups.all()[0].name)
-            # return redirect('Login')
             if request.user.groups.all()[0].name == "Admin":
                 return redirect('HomeAdmin')
             elif request.user.groups.all()[0].name == "Site Engineer":

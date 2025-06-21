@@ -12,26 +12,16 @@ class Structure(models.Model):
     StructureName=models.CharField(max_length=200, null=True)
     def __str__(self):
         return self.StructureName
+    
+class WorkArea(models.Model):
+    WorkAreaName=models.CharField(max_length=200, null=True)
+    def __str__(self):
+        return self.WorkAreaName
 
 class Area(models.Model):
-    AreaName=[
-        ('','None'),
-        ('Bhopal','Bhopal'),
-        ('SBN','SBN'),
-        ('KV','KV'),
-        ('DBM','DBM'),
-        ('MPZ','MPZ'),
-        ('RKP','RKP'),
-        ('HBM','HBM'),
-        ('ALK','ALK'),
-        ('AIIMS','AIIMS'),
-        ('Bangalore','Bangalore'),
-        ('Casting Yard','Casting Yard'),
-        ('Casting Yard QC','Casting Yard QC'),
-        ('Casting Yard PM','Casting Yard PM'),   
-    ]
     Username=models.CharField(max_length=200, null=True) #ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,null=True)
-    AreaName=models.CharField(max_length=200, null=True,choices=AreaName,default='None')
+    # AreaName=models.CharField(max_length=200, null=True,choices=AreaName,default='None')
+    AreaName=models.ForeignKey(WorkArea, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.AreaName

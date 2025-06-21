@@ -7,7 +7,7 @@
           display: block;
           top: 0;
           left: 0;
-         width: 14vw;
+          width: 14vw;
           height: 90vh;
           color: #000;
           background-color: #fff;
@@ -116,11 +116,11 @@
   <div class="sidebar">
         <img height="13%" src="" alt="">
         <br><br>
-        <a href="{% url 'HomeAdmin' %}">User</a>
-        <a href="{% url 'ShowWorkArea' %}">Work Area</a>
+        <a href="{% url 'HomeAdmin' %}" >User</a>
+        <a href="{% url 'ShowWorkArea' %}" class="sidebar-item active" >Work Area</a>
         <a href="{% url 'Contractor' %}" >Contractor</a>
         <a href="{% url 'ShowStructure' %}" >Structure</a>
-        <a href="{% url 'ShowLabours' %}" class="sidebar-item active">Labour Category</a>
+        <a href="{% url 'ShowLabours' %}" >Labour Category</a>
         <a href="{% url 'ShowLabourOfContractor' %}" >Labour with Contractor</a>
         <a href="{% url 'ShowActivity' %}" >Deployment Category</a>
   </div>
@@ -137,13 +137,13 @@
       <div id="data">
         <table>
           <tr style="position: sticky; width:100%;top:0%;background-color: rgb(236, 255, 255);">
-            <th>Labour Category</th>
+            <th>Work Area Name</th>
             <th>Action</th>
           </tr>
           {% for i in data.itertuples %}
           <tr>
-            <td>{{i.LabourCategory}}</td>
-            <td><a href="{% url 'EditLabours' i.id %}">Edit</a> | <a onclick="Delete()" href="{% url 'DeleteLabours' i.id %}">Delete</a></td>
+            <td>{{i.WorkAreaName}}</td>
+            <td><a href="{% url 'EditWorkArea' i.id %}">Edit</a> | <a onclick="Delete()" href="{% url 'DeleteWorkArea' i.id %}">Delete</a></td>
           </tr>
           {% endfor %}
         </table>

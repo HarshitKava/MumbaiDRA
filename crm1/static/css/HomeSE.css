@@ -1,6 +1,6 @@
 body
 {
-    background-image: url(https://www.urcindia.com/img/new_logo.svg);
+    background-image: url();
     background-repeat:no-repeat;
     background-position: 53% 15%;
     background-size: 40%;
@@ -243,7 +243,7 @@ animation: zoomin 0.7s forwards ;
   }
   body
   {
-      background-image: url(https://www.urcindia.com/img/new_logo.svg);
+      background-image: url();
       background-repeat:no-repeat;
       background-position: 53% -80%;
       background-size: 20%;

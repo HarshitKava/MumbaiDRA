@@ -236,6 +236,12 @@ class CreateUserForm(UserCreationForm):
             # remove multiple choice widget for groups
             # 'groups': forms.Select(attrs={'multiple': False}),
             }
+
+class WorkAreaForm (ModelForm):
+    class Meta:
+        model = WorkArea
+        fields = ['WorkAreaName']#'__all__'        
+
 class AddCont(ModelForm):
     class Meta:
         model = ContractorDetail

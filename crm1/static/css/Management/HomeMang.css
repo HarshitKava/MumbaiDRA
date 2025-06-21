@@ -1,6 +1,6 @@
 body
 {
-    background-image: url(https://www.urcindia.com/img/new_logo.svg);
+    background-image: url();
     background-repeat:no-repeat;
     background-position: 54% 15%;
     background-size: 40%;
@@ -131,7 +131,7 @@ body
     /* for desktop*/
     body
     {
-        background-image: url(https://www.urcindia.com/img/new_logo.svg);
+        background-image: url();
         background-repeat: no-repeat;
         background-position: 4% 10%;
         background-size: 12%;
