@@ -1,0 +1,28 @@
+{% extends 'LabourReport/NavbarLR.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/Admin/Contractor.css' %}">
+{% endblock %}
+{% block content %}
+<center>
+<form action="" method="post" >
+  {% csrf_token %}
+  <div class="input-container">
+		{{form.ContractorName}}
+		<label>Contractor Name</label>		
+	</div>
+	<div class="input-container">		
+		{{form.ContractorNumber}}
+		<label>Contractor Number</label>
+	</div>
+  <input type="submit" value="Add Contractor" id="submitbtn">
+</form>
+
+</center>
+
+
+{% endblock %}
+{% block bkbtn %}<a href="{% url 'HomeAdmin' %}" class="back">Home</a>{% endblock %}
+{% block js %}
+<script src="{% static '/js/Admin/Contractor.js' %}" async defer></script>
+{% endblock %}

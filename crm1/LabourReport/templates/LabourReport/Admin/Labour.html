@@ -9,10 +9,22 @@
   {% csrf_token %}
   <div class="input-container">
     {{form.LabourCategory}}
-    <label>Labour Category</label>
+    <label style="z-index:-1;">Labour Category</label>
   </div>
   <input type="submit" class="submitbtn">
 </form>
+<div id="data">
+  <table>
+    <tr style="position: sticky; width:100%;top:0%;background-color: rgb(236, 255, 255);">
+      <th>Labour Category</th>
+    </tr>
+    {% for i in labour_data %}
+    <tr>
+      <td>{{i.LabourCategory}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
 </center>
 {% endblock %}
 {% block bkbtn %}<a href="{% url 'HomeAdmin' %}" class="back">Home</a>{% endblock %}

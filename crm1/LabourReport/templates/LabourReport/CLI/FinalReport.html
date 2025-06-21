@@ -1,0 +1,38 @@
+{% extends 'LabourReport/NavbarLR.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/Management/FinalReport.css' %}">
+    {% endblock %}
+    {% block LRLink %}<a class="nav-link active" href="{% url 'HomeMang' %}">Labour Report</a>{% endblock %}
+    {% block PRLink %}<a class="nav-link" href="{% url 'HomeSEProRepo' %}">Productivity Report</a>{% endblock %}
+    {% block content %}
+    <center>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div style="margin-top: 1%;" class="input-container select">
+            <label>Shift:</label>
+            <select required name="shift" id="shift"  >
+                <option value="">None</option>
+                <option value="Day">Day</option>
+                <option value="Night">Night</option>
+            </select>
+          </div>
+        <div style="margin-top: 1%;" class="input-container select">
+            <label>Type:</label>
+            <select required name="type" id="shift"  >
+                <option value="None">None</option>
+                <option value="Site">Overall Site Report</option>
+                <option value="Final">Overall Final Report</option>
+            </select>
+          </div>
+          <div class="input-container">
+            <input type="date" required  id="daten" name="date" placeholder="Enter your employee ID">
+            <label>Date</label>		
+        </div><input type="submit" class="submitbtn">
+
+    </form>
+</center>
+{% endblock %}
+{% block bkbtn %}<a href="{% url 'HomeMang' %}" class="back">Home</a>{% endblock %}
+{% block js %}
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'LabourReport/NavbarLR.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/Admin/User.css'%}">
+<style>
+    body{
+        background-position: 52% 15%;
+
+    }
+</style>
+{% endblock %}
+{% block content %}
+<center>
+  <div >
+<form style="left:0%;" action="" method="post">
+  {% csrf_token %}
+
+  
+  <div class="input-container">
+    {{form1.username}}
+    <label>User Name</label>
+  </div>
+  <div class="input-container">
+    {{form1.email}}
+    <label>Email-Id</label>
+  </div>
+  <div style="margin-top: 1%;" class="input-container select">
+    <label>Select Role</label>
+    {{form1.groups}}
+  </div>
+  <div style="margin-top: 1%;" class="input-container select">
+    <label>Select Area:</label>
+    {{form2.AreaName}}
+  </div>
+<div style="display: none;">
+  {{form1.password1}}
+  {{form1.password2}}
+  {{form2.Username}}
+</div>
+<input type="submit" class="submitbtn" value="Add User" >
+
+</form>
+</div>
+</center>
+{% endblock %}
+{% block bkbtn %}<a href="{% url 'HomeAdmin' %}" class="back">Home</a>{% endblock %}
+{% block js %}
+<script src="{% static '/js/Admin/User.js' %}"></script>
+{% endblock %}

@@ -9,8 +9,8 @@ function setPass(){
     // add required attribute
     document.getElementById("id_email").required=true;
     console.log(document.getElementById("id_email").value);
-    document.getElementById("id_password1").value="urc12345";
-    document.getElementById("id_password2").value="urc12345";
+    document.getElementById("id_password1").value="Pass@123";
+    document.getElementById("id_password2").value="Pass@123";
     document.getElementById("id_groups").removeAttribute("multiple");
     document.getElementById("id_username").innerHTML="Name";
 }

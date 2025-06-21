@@ -2,13 +2,495 @@
 {% load static %}
 {% block css %}
 <link rel="stylesheet" href="{% static '/css/Management/HomeMang.css' %}">
+<style>
+    #all_charts{
+        position: absolute;
+        top: 25vh;
+    }
+    canvas{
+        display: inline-block;
+        margin: 0px !important;
+    }
+    #mychart{
+        margin: 0px !important;
+    }
+    #line_chart{
+        border-radius: 10px;
+        display: inline-block;
+        width: 48vw;
+        height: 50vh;
+    }
+    #pie_chart{
+        display: inline-block;
+        width: 64vh;
+        height: 64vh;
+        margin-left: 2vw;
+    }
+    #data{
+        display: inline-block;
+        font-size: 100%;
+        border:0px;
+        color: #008837;
+    }
+    #data th{
+        position: sticky;
+        top: 0;
+        background-color: #b0d9ff;
+        opacity: 1;
+    }
+    #data td,th{
+        padding: 5px;
+    }
+    #data tr{
+        border-bottom: 1px solid #015099;
+        
+    }
+    .Report{
+        width: 46vw;
+        height: 64vh;
+        overflow-y: auto;
+        margin-left: 5px;
+    }
+    .ReportStatus{
+        width: 20vw;
+        height: 64vh;
+        overflow-y: auto;
+    }
+    #Slider{
+        width: 100vw;
+        height: 70vh;
+        overflow: hidden;
+        position: relative;
+        top: -30px;
+    }
+    input[type="radio"]{
+        display: none;
+    }
+
+    
+    
+    #Slides{
+        /* background-color: #b5ffb0; */
+        /* display: flex; */
+        width: 300vw;
+
+    }
+    .labels{
+        background-color: transparent;
+        width: 5vw;
+        height: 5vh;
+        margin: 0px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        padding: auto;
+        position: relative;
+        left: 48vw;
+        z-index: 1;
+        color: whitesmoke;
+    }
+    #moving-div{
+        width: 5vw;
+        height: 5vh;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        background-color: #008837;
+        position: absolute;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        left: 48vw;
+        top: 0vh;
+        z-index: 0;
+        transition: 1s;
+    }
+    #static-div{
+        width: 10vw;
+        height: 5vh;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        background-color: #015099;
+        position: absolute;
+        border-radius: 10px;
+        left: 48vw;
+        top: 0vh;
+        z-index: -1;
+        transition: 1s;
+    }
+    #DayLabel{
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        
+        /* margin-left: ; */
+    }
+    #NightLabel{
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        
+    }
+    .Slide{
+        width: 100vw;
+        height: 100%;
+        display: inline-block;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+    #Slides{
+        /* display: none; */
+        width: 300vw;
+        transition: 1s;
+    }
+    #Day:checked ~ #Slides{
+        margin-left: 0vw;
+    }
+    #Night:checked ~ #moving-div{
+        margin-left: 5.2vw;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    #Night:checked ~ #DayLabel{
+        background-color: #b3f9ff;
+    }
+
+    #Night:checked ~ #radiolabels #NightLabel{
+        background-color: #c9ffb3;
+    }
+    #Night:checked ~ #Slides{
+        margin-left: -100vw;
+    }
+    
+</style>
 {% endblock %}
 {% block LRLink %}<a class="nav-link active" href="{% url 'HomeSE' %}">Labour Report</a>{% endblock %}
 {% block PRLink %}<a class="nav-link" href="{% url 'HomeSEProRepo' %}">Productivity Report</a>{% endblock %}
 {% block content %}
-    <a href="{% url 'Export' %}" id="siteReport"class="siteReport">Site Report</a>
-    <a href="{% url 'FinalReport' %}" id="finalReport" class="finalReport"">Final Report</a>
+    <a href="{% url 'Export' %}" id="siteReport" class="siteReport">Site Report</a>
+    <a href="{% url 'FinalReport' %}" id="finalReport" class="finalReport">Final Report</a>
+    <a href="{% url 'Send_Emails' 'Day' %}" id="finalReport" class="finalReport" style="left: 60%;">Send Email</a>
+    <!-- -->
+    <div id="all_charts">
+        <div id="Slider">
+            <label align="center" class="labels" for="Day" id="DayLabel"><span style="z-index: 1;">Day</span></label>
+            <label align="center" class="labels" for="Night" id="NightLabel"><span style="z-index: 1;">Night</span></label>
+            <input type="radio" name="slider" id="Day" checked>
+            <input type="radio" name="slider" id="Night">
+            <div id="moving-div">
+            </div>
+            <div id="static-div">
+            </div>
+            
+            <div id="Slides">
+                
+                <div class="Slide" id="DaySlide">
+                    <div id="data" class="Report">
+                        <!-- {{ table_data.columns }} -->
+                        <table style="width: 100%;">
+                            <tr>
+                                <th>Area</th>
+                                <th>Total</th>
+                                <th>Form Work</th>
+                                <th>Reinforcement</th>
+                                <th>Dispatch Clearance</th>
+                                <th>Painting</th>
+                                <th>Board Work</th>
+                                <th>Masonary</th>
+                                <th>Others</th>
+                            </tr>
+                        {% for i in Day_table_data.itertuples %}
+                            <tr>
+                                <td style="background-color: aliceblue;"><strong>{{i.Areaname}}</strong></td>
+                                {% if i.Total == 0 %}
+                                <td style="background-color: aliceblue; color: red;text-align: center;">{{i.Total}}</td>
+                                {% else %}
+                                    <td style="background-color: aliceblue; text-align: center;" ><strong>{{i.Total}}</strong></td>
+                                {% endif %}
+                                {% if i.FORMWORK == 0 %}
+                                <td style="color: red; text-align: center;">0.0</td>
+                                {% else %}
+                                    <td style="text-align: center;">{{i.FORMWORK}}</td>
+                                {% endif %}
+                                {% if i.REINFORCEMENT == 0 %}
+                                <td style="color: red; text-align: center;">0.0</td>
+                                {% else %}
+                                    <td style="text-align: center;">{{i.REINFORCEMENT}}</td>
+                                {% endif %}
+                                {% if i.DISPATCHCLEARANCE == 0 %}
+                                <td style="color: red; text-align: center;">0.0</td>
+                                {% else %}
+                                    <td style="text-align: center;">{{i.DISPATCHCLEARANCE }}</td>
+                                {% endif %}
+                                {% if i.PAINTING == 0 %}
+                                <td style="color: red; text-align: center;">0.0</td>
+                                {% else %}
+                                    <td style="text-align: center;">{{i.PAINTING}}</td>
+                                {% endif %}
+                                {% if i.BOARDWORK == 0 %}
+                                <td style="color: red; text-align: center;">0.0</td>
+                                {% else %}
+                                    <td style="text-align: center;">{{i.BOARDWORK}}</td>
+                                {% endif %}
+                                {% if i.MASONARY == 0 %}
+                                <td style="color: red; text-align: center;">0.0</td>
+                                {% else %}
+                                    <td style="text-align: center;">{{i.MASONARY}}</td>
+                                {% endif %}
+                                {% if i.OTHERS == 0 %}
+                                <td style="color: red; text-align: center;">0.0</td>
+                                {% else %}
+                                    <td style="text-align: center;">{{i.OTHERS}}</td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                        </table>
+                        <!-- <table style="width: 100%; ">
+                            <tr>
+                                <th>Site</th>
+                                <th>Labour Count</th>
+                                <th>Carpenter</th>
+                                <th>Barbender</th>
+                                <th>Mason</th>
+                                <th>Painter</th>
+                                <th>Others</th>
+                            </tr>
+                            {% for i in Site_wise_data.itertuples %}
+                            <tr>
+                                <td>{{i.Areaname}}</td>
+                                <td>{{i.NoLabor}}</td>
+                            </tr>
+                            {% endfor %}
+                        </table> -->
+                    </div>
+                    <div id="pie_chart">
+                        <canvas id="DayPieChart" style="width: 100% !important"></canvas>
+                    </div>
+                    <div id="data" class="ReportStatus">
+                        
+                        <table style="width: 100%; height: 95%;">
+                            <tr>
+                                <th>Area</th>
+                                <th>Status</th>
+                            </tr>
+                            <!--  -->
+                            {% for i in RS.itertuples %}
+                            <tr>
+                                <td>{{i.Area}}</td>
+                                {% if i.Status_Day == "True" %}
+                                <td>Done</td>
+                                {% else %}
+                                <td style="color: red;">Pending</td>
+                                {% endif %}
+                                
+                            </tr>
+                            {% endfor %}
+                            
+                        </table>
+                    </div>
+                </div>
+
+                <div class="Slide night">
+                    <div id="data" class="Report">
+                        <!-- {{ table_data.columns }} -->
+                        <table style="width: 100%; height: 95%;">
+                            <tr>
+                                <th>Area</th>
+                                <th>Total</th>
+                                <th>Form Work</th>
+                                <th>Reinforcement</th>
+                                <th>Dispatch Clearance</th>
+                                <th>Painting</th>
+                                <th>Board Work</th>
+                                <th>Masonary</th>
+                                <th>Others</th>
+                            </tr>
+                        {% for i in Night_table_data.itertuples %}
+                            <tr>
+                                <td style="background-color: aliceblue;"><strong>{{i.Areaname}}</strong></td>
+                                {% if i.Total == 0 %}
+                                <td style="background-color: aliceblue; color: red;text-align: center;">{{i.Total}}</td>
+                                {% else %}
+                                    <td style="background-color: aliceblue; text-align: center;" ><strong>{{i.Total}}</strong></td>
+                                {% endif %}
+                                {% if i.FORMWORK == 0 %}
+                                <td style="color: red; text-align: center;">0.0</td>
+                                {% else %}
+                                    <td style="text-align: center;">{{i.FORMWORK}}</td>
+                                {% endif %}
+                                {% if i.REINFORCEMENT == 0 %}
+                                <td style="color: red; text-align: center;">0.0</td>
+                                {% else %}
+                                    <td style="text-align: center;">{{i.REINFORCEMENT}}</td>
+                                {% endif %}
+                                {% if i.DISPATCHCLEARANCE == 0 %}
+                                <td style="color: red; text-align: center;">0.0</td>
+                                {% else %}
+                                    <td style="text-align: center;">{{i.DISPATCHCLEARANCE }}</td>
+                                {% endif %}
+                                {% if i.PAINTING == 0 %}
+                                <td style="color: red; text-align: center;">0.0</td>
+                                {% else %}
+                                    <td style="text-align: center;">{{i.PAINTING}}</td>
+                                {% endif %}
+                                {% if i.BOARDWORK == 0 %}
+                                <td style="color: red; text-align: center;">0.0</td>
+                                {% else %}
+                                    <td style="text-align: center;">{{i.BOARDWORK}}</td>
+                                {% endif %}
+                                {% if i.MASONARY == 0 %}
+                                <td style="color: red; text-align: center;">0.0</td>
+                                {% else %}
+                                    <td style="text-align: center;">{{i.MASONARY}}</td>
+                                {% endif %}
+                                {% if i.OTHERS == 0 %}
+                                <td style="color: red; text-align: center;">0.0</td>
+                                {% else %}
+                                    <td style="text-align: center;">{{i.OTHERS}}</td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                        </table>
+                        <!-- <table style="width: 100%; ">
+                            <tr>
+                                <th>Site</th>
+                                <th>Labour Count</th>
+                                <th>Carpenter</th>
+                                <th>Barbender</th>
+                                <th>Mason</th>
+                                <th>Painter</th>
+                                <th>Others</th>
+                            </tr>
+                            {% for i in Site_wise_data.itertuples %}
+                            <tr>
+                                <td>{{i.Areaname}}</td>
+                                <td>{{i.NoLabor}}</td>
+                            </tr>
+                            {% endfor %}
+                        </table> -->
+                    </div>
+                    <div id="pie_chart">
+                        <canvas id="NightPieChart" style="width: 100% !important"></canvas>
+                    </div>
+                    <div id="data" class="ReportStatus">
+                        
+                        <table style="width: 100%; height: 95%;">
+                            <tr>
+                                <th>Area</th>
+                                <th>Status</th>
+                            </tr>
+                            <!--  -->
+                            {% for i in RS.itertuples %}
+                            <tr>
+                                <td>{{i.Area}}</td>
+                                {% if i.Status_Night == "True" %}
+                                <td>Done</td>
+                                {% else %}
+                                <td style="color: red;">Pending</td>
+                                {% endif %}
+                            </tr>
+                            {% endfor %}
+                            
+                        </table>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
 {% endblock %}
 {% block js %}
     <script src="{% static 'js/Management/HomeMang.js' %}" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js" integrity="sha512-JPcRR8yFa8mmCsfrw4TNte1ZvF1e3+1SdGMslZvmrzDYxS69J7J49vkFL8u6u8PlPJK+H3voElBtUCzaXj+6ig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
+    <script>
+    Chart.defaults.font.size = 15;
+    
+        var ctx = document.getElementById('DayPieChart');
+        x = [{% for i in Day_pie_chart_label %} "{{i}}", {% endfor %}]
+        y = [{% for i in Day_pie_chart_data %} parseInt("{{i}}"), {% endfor %}]
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels:  x,//['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: 'Site Wise Labour Distribution',
+                    data: y,
+                    backgroundColor: ['rgb(255, 99, 132, 0.5)', 'rgb(54, 162, 235, 0.5)', 'rgb(255, 206, 86, 0.5)', 'rgb(75, 192, 192, 0.5)', 'rgb(153, 102, 255, 0.5)', 'rgb(255, 159, 64, 0.5)', 'rgb(253, 180, 92, 0.5)', 'rgb(141, 187, 76, 0.5)', 'rgb(93, 93, 93, 0.5)'],
+                    borderColor: ['rgb(255, 99, 132, 1)', 'rgb(54, 162, 235, 1)', 'rgb(255, 206, 86, 1)', 'rgb(75, 192, 192, 1)', 'rgb(153, 102, 255, 1)', 'rgb(255, 159, 64, 1)', 'rgb(253, 180, 92, 1)', 'rgb(141, 187, 76, 1)', 'rgb(93, 93, 93, 1)'], 
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                plugins:{
+                    labels: {
+                        render: 'percentage',
+                        fontColor:['rgb(255, 99, 132, 1)', 'rgb(54, 162, 235, 1)', 'rgb(255, 206, 86, 1)', 'rgb(75, 192, 192, 1)', 'rgb(153, 102, 255, 1)', 'rgb(255, 159, 64, 1)', 'rgb(253, 180, 92, 1)', 'rgb(141, 187, 76, 1)', 'rgb(93, 93, 93, 1)'], 
+                        fontSize: 15,
+                        fontStyle: 'bold',
+                        position: 'outside',
+                    },
+                    legend: {
+                        position: 'left',
+                    },
+                    datalabels: {
+                        formatter: (value, ctx) => {
+                            let sum = 0;
+                            let dataArr = y;
+                            for (let i = 0; i < dataArr.length; i++) {
+                                sum += parseInt(dataArr[i]);
+                            }
+                            console.log(sum);
+                            let percentage = (value*100 / sum).toFixed(1)+"%";
+                            return String(value);
+                        }
+                    }
+                }
+            },
+            plugins: [ChartDataLabels],
+        });
+        var ctx = document.getElementById('NightPieChart');
+        x = [{% for i in Night_pie_chart_label %} "{{i}}", {% endfor %}]
+        y = [{% for i in Night_pie_chart_data %} parseInt("{{i}}"), {% endfor %}]
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels:  x,//['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: 'Site Wise Labour Distribution',
+                    data: y,
+                    backgroundColor: ['rgb(255, 99, 132, 0.5)', 'rgb(54, 162, 235, 0.5)', 'rgb(255, 206, 86, 0.5)', 'rgb(75, 192, 192, 0.5)', 'rgb(153, 102, 255, 0.5)', 'rgb(255, 159, 64, 0.5)', 'rgb(253, 180, 92, 0.5)', 'rgb(141, 187, 76, 0.5)', 'rgb(93, 93, 93, 0.5)'],
+                    borderColor: ['rgb(255, 99, 132, 1)', 'rgb(54, 162, 235, 1)', 'rgb(255, 206, 86, 1)', 'rgb(75, 192, 192, 1)', 'rgb(153, 102, 255, 1)', 'rgb(255, 159, 64, 1)', 'rgb(253, 180, 92, 1)', 'rgb(141, 187, 76, 1)', 'rgb(93, 93, 93, 1)'], 
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                plugins:{
+                    labels: {
+                        render: 'percentage',
+                        fontColor:['rgb(255, 99, 132, 1)', 'rgb(54, 162, 235, 1)', 'rgb(255, 206, 86, 1)', 'rgb(75, 192, 192, 1)', 'rgb(153, 102, 255, 1)', 'rgb(255, 159, 64, 1)', 'rgb(253, 180, 92, 1)', 'rgb(141, 187, 76, 1)', 'rgb(93, 93, 93, 1)'], 
+                        fontSize: 15,
+                        fontStyle: 'bold',
+                        position: 'outside',
+                    },
+                    legend: {
+                        position: 'left',
+                    },
+                    datalabels: {
+                        formatter: (value, ctx) => {
+                            let sum = 0;
+                            let dataArr = y;
+                            for (let i = 0; i < dataArr.length; i++) {
+                                sum += parseInt(dataArr[i]);
+                            }
+                            console.log(sum);
+                            let percentage = (value*100 / sum).toFixed(1)+"%";
+                            return String(value);
+                        }
+                    }
+                }
+            },
+            plugins: [ChartDataLabels],
+        });
+    </script>
+
 {% endblock %}

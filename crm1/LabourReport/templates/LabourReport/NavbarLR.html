@@ -4,14 +4,18 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>URC Construction</title>
         <meta name="description" content="">
+        <link rel="icon" type="image/x-icon" href="https://www.urcindia.com/img/favicon.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!-- <link rel="stylesheet" href="{% static '/css/Admin/Admin.css' %}"> -->
         <!-- <link rel="text/stylesheet" href="Admin.css"> -->
         <style>
-            
+            .Main-dv{
+                width: 100vw;
+                height: 100vh;
+            }
             .nav.nav-tabs{
                 background-color: #056A54;
                 font-size: large;
@@ -68,7 +72,7 @@
             #footer{
                 background-color: #056A54;
                 font-size: 160%;
-                border-bottom:10px solid #325694;                
+                border-bottom:10px solid #325694;
                 overflow: hidden;
                 position: fixed;
                 bottom: 0px;
@@ -102,7 +106,55 @@
                 color: rgb(0, 0, 0);
                 /* remove underline */
                 text-decoration: none;
-                
+
+            }
+            @media only screen and (min-width: 600px) {
+                .nav.nav-tabs{
+                    width: 100%;
+                }
+            }
+            .custom-loader {
+            width: 50px;
+            height: 50px;
+            display: grid;
+            border:4px solid #0000;
+            border-radius: 50%;
+            border-color:#008837 #0000;
+            animation: s6 2s infinite linear;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            }
+            .custom-loader::before,
+            .custom-loader::after {
+            content:"";
+            grid-area: 1/1;
+            margin:2px;
+            border:inherit;
+            border-radius: 50%;
+            }
+            .custom-loader::before {
+            border-color:#015099 #0000;
+            animation:inherit;
+            animation-duration: 1s;
+            animation-direction: reverse;
+            }
+            .custom-loader::after {
+            margin:8px;
+            }
+
+            @keyframes s6 {
+            100%{transform: rotate(1turn)}
+            }
+            .hide{
+                display: none;
+            }
+            .blur{
+                /* blur  */
+                filter: blur(1px);
+                /* opacity */
+                opacity: 0.5;
+                z-index: -5;
             }
         </style>
         {% block css %}
@@ -110,23 +162,41 @@
 
     </head>
   <body>
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-          {% block LRLink %}<a class="nav-link active" href="{% url 'HomeAdmin' %}">Labour Report</a>{% endblock %}
-        </li>
-        <li class="nav-item">
-          {% block PRLink %}<a class="nav-link" href="{% url 'HomeAdminProRepo' %}">Productivity Report</a>{% endblock %}
-        </li>
-        
-    </ul>
+    <div class="Main-dv blur">
+        <div style="display: block;">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                {% block LRLink %}<a class="nav-link active" href="{% url 'HomeAdmin' %}">Labour Report</a>{% endblock %}
+                </li>
+                <li class="nav-item">
+                {% block PRLink %}<a class="nav-link" href="{% url 'HomeAdminProRepo' %}">Productivity Report</a>{% endblock %}
+                </li>
 
-    {% block sideNav %}
-    {% endblock %}
-    {% block content %}
-    {% endblock %}
-    
-    <div style="z-index: 1;" id="footer"><p id="name">{{request.user}}</p>{% block bkbtn %}<a href="{% url 'Logout' %}" class="back">Log Out</a>{% endblock %}</div>
+            </ul>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+        {% block content2 %}
+
+        <div style="z-index: 1;" id="footer"><p id="name">{{request.user}}</p>
+        {% endblock %}
+        {% block bkbtn %}<a href="{% url 'Logout' %}" class="back">Log Out</a>{% endblock %}</div>
+    </div>
+    <div class="custom-loader"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $.ajax({
+            type: "GET",
+            url: "http://127.0.0.1:8000/",
+            success: function(){
+                $(".custom-loader").remove();
+                    $(".Main-dv").removeClass("blur");
+            }
+        });
+    </script>
     {% block js %}
+
     {% endblock %}
     <!-- <script src="{% static '/js/Admin/admin.js' %}" async defer></script> -->
   </body>

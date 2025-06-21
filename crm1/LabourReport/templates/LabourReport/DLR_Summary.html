@@ -1,0 +1,56 @@
+{% extends 'LabourReport/NavbarLR.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/SiteEngViewDayData.css' %}">
+<style>
+</style>
+{% endblock %}
+{% block LRLink %}<a class="nav-link active" href="{% url 'HomeSE' %}">Labour Report</a>{% endblock %}
+{% block PRLink %}<a class="nav-link" href="{% url 'HomeSEProRepo' %}">Productivity Report</a>{% endblock %}
+{% block content %}
+<div style="width: 100vw; height: 85vh; overflow: auto;" class="container">
+    <table id="display" style="text-align: center;" border="1px solid">
+        <thead>
+            <form action="" method="post">
+            {% csrf_token %}
+            <tr>
+                <!-- align text inside th to center -->
+                
+                <th style="text-align: center;" colspan="3">From: <input required type="date" name="From" id="" value="{{from}}"></th>
+                {% if Shift == 'Day' %}
+                <th style="text-align: center;" colspan="2">Shift: <input required checked type="radio" name="Shift" id="" value="Day">Day <input type="radio" name="Shift" id="" value="Night">Night</th>
+                {% elif Shift == 'Night' %}
+                <th style="text-align: center;" colspan="2">Shift: <input required type="radio" name="Shift" id="" value="Day">Day <input checked type="radio" name="Shift" id="" value="Night">Night</th>
+                {% else %}
+                <th style="text-align: center;" colspan="2">Shift: <input required type="radio" name="Shift" id="" value="Day">Day <input type="radio" name="Shift" id="" value="Night">Night</th>
+                {% endif %}
+            </tr>
+            <tr>
+                <th style="text-align: center;" colspan="3">To: <input required type="date" name="To" id="" value="{{to}}"></th>
+                <th style="text-align: center;" colspan="2"><input type="submit" name="Show" value="Show">
+                <input type="submit" name="Export" value="Export"></th>
+            </tr>
+            </form>
+            <tr style="position:sticky; top:0px;">
+                <th>Contractor Name</th>
+                <th>Date</th>
+                <th>Labour Category</th>
+                <th>Category of deployment</th>
+                <th>Deployment</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in df.itertuples %}
+            <tr>
+                <td style="text-align: left;">{{ i.ContractorName }}</td>
+                <td>{{ i.Date }}</td>
+                <td>{{ i.LabourCategory }}</td>
+                <td>{{ i.CategoryName }}</td>
+                <td>{{ i.NoLabor }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+</div>
+{% endblock %}
+{% block bkbtn %}<a href="{% url 'HomeSE' %}" class="back">Home</a>{% endblock %}
+

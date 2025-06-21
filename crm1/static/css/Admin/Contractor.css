@@ -199,4 +199,20 @@ td{
         display: inline;
         margin-left: 1%;
     }
+    #data{
+        
+        font-size: 100%;
+        border:0px;
+        overflow-y:auto;
+        height: 50%;
+        color: #008837;
+        background-color: transparent;
+        animation: zoomout 0.5s forwards ;
+    }
+    #data td,th{
+        padding: 5px;
+    }
+    #data tr{
+        border-bottom: 1px solid #015099;
+    }
 }

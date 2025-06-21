@@ -1,5 +1,6 @@
 body
 {
+    background-image: url(https://www.urcindia.com/img/new_logo.svg);
     background-repeat:no-repeat;
     background-position: 50% 15%;
     background-size: 40%;
@@ -60,10 +61,10 @@ form{
 @media only screen and (min-width: 600px) {
     body
     {
-        
+        background-image: url(https://www.urcindia.com/img/new_logo.svg);
         background-repeat:no-repeat;
-        background-position: 53% 15%;
-        background-size: 20%;
+        background-position: 15% 15%;
+        background-size: 17%;
         height: 700px;
     }
     button:hover {
@@ -73,7 +74,7 @@ form{
     form{
         position: relative;
         top: 8rem;
-        left: 0rem;
+        left: -31%;
     }
     .bkbtn{
         border-radius: 5px;
@@ -201,8 +202,8 @@ form{
     }
     #data{
         position: absolute;
-        top: 20%;
-        left: 67%;
+        top: 30%;
+        left: 50%;
         font-size: 100%;
         border:0px;
         overflow-y:auto;

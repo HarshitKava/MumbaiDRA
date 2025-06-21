@@ -111,4 +111,16 @@
             border-bottom: 2px solid #015099;
         }
     }
+    #data{
+        position: absolute;
+        top: 20%;
+        left: 67%;
+        font-size: 100%;
+        border:0px;
+        overflow-y:auto;
+        height: 50%;
+        color: #008837;
+        background-color: transparent;
+        animation: zoomout 0.5s forwards ;
+    }
 }

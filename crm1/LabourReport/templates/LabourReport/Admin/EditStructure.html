@@ -1,0 +1,21 @@
+{% extends 'LabourReport/NavbarLR.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/Admin/Labour.css' %}">
+{% endblock %}
+{% block content %}
+<center>
+<form  method="post" >
+  {% csrf_token %}
+  <div class="input-container">
+    {{Form.StructureName}}
+    <label style="z-index:-1;">Structure Name</label>
+  </div>
+  <input type="submit" class="submitbtn">
+</form>
+</center>
+{% endblock %}
+{% block bkbtn %}<a href="{% url 'ShowStructure' %}" class="back">Home</a>{% endblock %}
+{% block js %}
+<script src="{% static '/js/Admin/Labour.js' %}"></script>
+{% endblock %}

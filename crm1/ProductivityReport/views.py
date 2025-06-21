@@ -22,26 +22,29 @@ def HomeAdminProRepo(request):
 @allowed_users(allowed_roles=['Admin'])
 def Activity(request):
     Form=CategoryOfDeploymentForm()
+    data = CategoryOfDeployment.objects.all()
     if request.method=='POST':
         Form=CategoryOfDeploymentForm(request.POST)
         if Form.is_valid():
             Form.save()
             return redirect('AddActivity')
-    return render(request,'ProductivityReport/Admin/Activity.html',{'Form':Form})
+    return render(request,'ProductivityReport/Admin/Activity.html',{'Form':Form,'data':data})
 
 @login_required(login_url='Login')
 @allowed_users(allowed_roles=['Admin'])
 def AddStructure(request):
     Form=StructureForm()
+    data = Structure.objects.all()
     if request.method=='POST':
         Form=StructureForm(request.POST)
         if Form.is_valid():
             Form.save()
-            return redirect('AddStructure')
-    return render(request,'ProductivityReport/Admin/Structure.html',{'Form':Form})
+            return redirect('ShowStructure')
+    return render(request,'ProductivityReport/Admin/Structure.html',{'Form':Form,'data':data})
+
 
 @login_required(login_url='Login')
-@allowed_users(allowed_roles=['Site Engineer'])
+@allowed_users(allowed_roles=[''])
 def HomeSEProRepo(request):
     return render(request,'ProductivityReport/SE/HomeSEProRepo.html')
 
@@ -83,7 +86,7 @@ def SEAddProRepo(request,i):
     return render(request,'ProductivityReport/SE/SEAddDayProRepo.html',{'Form':Form,'Report':Report,'Areaname':Areaname,'Areaname_id':Areaname_id,'d1':d1,'d2':d2})
 
 @login_required(login_url='Login')
-@allowed_users(allowed_roles=['Site Engineer'])
+@allowed_users(allowed_roles=[''])
 def SEAddProRepo1(request):
     current_user = request.user
     Areaname = Area.objects.filter(Username=current_user.username)
@@ -104,7 +107,7 @@ def SEAddProRepo1(request):
     return render(request,'ProductivityReport/SE/SEAddDayProRepo_1.html',{'LRids':LRids,'ProReport':ProReport,'Report':Report,'Areaname':Areaname,'Areaname_id':Areaname_id,'d1':d1,'d2':d2})
 
 @login_required(login_url='Login')
-@allowed_users(allowed_roles=['Site Engineer'])
+@allowed_users(allowed_roles=[''])
 def SEViewDayProRepo(request):
     today = datetime.now()
     today = today + timedelta(1)
@@ -119,21 +122,21 @@ def SEViewDayProRepo(request):
     return render(request,'ProductivityReport/SE/SEViewDayProRepo.html',{'Report':Report,'Areaname':Areaname,'Areaname_id':Areaname_id})
 
 @login_required(login_url='Login')
-@allowed_users(allowed_roles=['Site Engineer'])
+@allowed_users(allowed_roles=[''])
 def SEDelDayProRepo(request,i):
     data=ProductivityReport.objects.get(id=i)
     data.delete()
     return redirect('SEAddProRepo')
 
 @login_required(login_url='Login')
-@allowed_users(allowed_roles=['Site Engineer'])
+@allowed_users(allowed_roles=[''])
 def SEDelNightProRepo(request,i):
     data=ProductivityNightReport.objects.get(id=i)
     data.delete()
     return redirect('SEAddNightProRepo')
 
 @login_required(login_url='Login')
-@allowed_users(allowed_roles=['Site Engineer'])
+@allowed_users(allowed_roles=[''])
 def SEViewNightProRepo(request):
     current_user = request.user
     Areaname = Area.objects.filter(Username=current_user.username)
@@ -142,7 +145,7 @@ def SEViewNightProRepo(request):
     return render(request,'ProductivityReport/SE/SEViewNightProRepo.html',{'Report':Report,'Areaname':Areaname,'Areaname_id':Areaname_id})
 
 @login_required(login_url='Login')
-@allowed_users(allowed_roles=['Site Engineer'])
+@allowed_users(allowed_roles=[''])
 def SEAddNightProRepo(request):
     Form=ProductivityNightReportForm()
     current_user = request.user

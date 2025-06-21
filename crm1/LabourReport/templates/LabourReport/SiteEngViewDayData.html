@@ -36,6 +36,9 @@
         </tr>
         {% endif %}
       </table>
+      <div style="display: none;">
+        <p id="ar_id" >{{Areaname_id}}</p>
+      </div>
       {% endblock %}
       {% block bkbtn %}<a href="{% url 'HomeSE' %}" class="back">Home</a>{% endblock %}
       {% block js %}<script src="{% static '/js/form.js' %}" async defer></script>

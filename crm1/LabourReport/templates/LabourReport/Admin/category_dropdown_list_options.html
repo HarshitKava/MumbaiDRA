@@ -1,6 +1,8 @@
 <option value="">---------</option>
 {% for i in Category %}
-
+{% if i.pk == val %}
+<option value="{{i.pk}}" selected>{{i.CategoryName}}</option>
+{% else %}
 <option value="{{i.pk}}" >{{i.CategoryName}}</option>
+{% endif %}
 {% endfor %}
-        

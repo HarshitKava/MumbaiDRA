@@ -4,36 +4,36 @@
   <link rel="stylesheet" href="{% static '/css/SiteEngAddDayData.css' %}">
   {% endblock %}
   {% block LRLink %}<a class="nav-link active" href="{% url 'HomeSE' %}">Labour Report</a>{% endblock %}
-  {% block PRLink %}<a class="nav-link" href="{% url 'HomeSEProRepo' %}">Productivity Report</a>{% endblock %}
+  {% block PRLink %}
+    <a class="nav-link" href="{% url 'HomeSEProRepo' %}">Productivity Report</a>
+    
+  {% endblock %}
   {% block content %}
+  <center>
+  <div id="displaydiv">
   <table id='display' >
       <thead>
-        <tr>
+        <tr style="position: sticky; top:0px;">
         <th>Contractor Name</th>
         <th>Labour Category</th>
         <th>Category of deployment</th>
         <th>Structure</th>
         <th>Deployment</th>
+        <th>Edit</th>
         <th>Delete</th>
       </tr>
       </thead>
-
       {% for i in Report %}
       <tr>
-        <!-- <td>{{ i.created_at }}</td>
-        <td>{{ i.Areaname }}</td> -->
         <td>{{ i.ContractorName }}</td>
         <td>{{ i.LabourCategory }}</td>
         <td>{{ i.CategoryName }}</td>
         <td>{{ i.StructureName }}</td>
         <td>{{ i.NoLabor }}</td>
+        <td><a href="{% url 'EditSE' i.id  %}">Edit</a></td>
         <td><a href="{% url 'DeleteSE' i.id  %}">Delete</a></td>
-        
       </tr>
       {% endfor %}
-      
-        
-    
     <form action="" id="form" method="POST" data-labour-url="{% url 'ajax_load_labour' %}" data-cat-url="{% url 'ajax_load_cat' %}">
       {% csrf_token %}
       <tr>
@@ -42,29 +42,30 @@
         {{form.Areaname}}
         <p id="ar_id" >{{Areaname_id}}</p>
       </div>
-      
-      
-          <!-- <td></td> -->
-          
           <td>{{form.ContractorName}}</td>
           <td>{{form.LabourCategory}}</td>
-          <td>{{form.CategoryName }}</td>
+          <td>{{form.CategoryName}}</td>
           <td>{{form.StructureName}}</td>
           <td>{{form.NoLabor}}</td>
-        <td><input type="submit" name="submit" class="submitbtn"></td>
-      </tr>
-        
-        
-        
-        
-            
-          
+        <td align="center" colspan="2"><input type="submit" name="submit" class="submitbtn"></td>
+      </tr>    
     </form>
   </table>
+</div>
+</center>
   {% endblock %}
-  {% block bkbtn %}<a href="{% url 'HomeSE' %}" class="back">Home</a>{% endblock %}
+  {% block bkbtn %}
+    
+ 
+  <a href="{% url 'HomeSE' %}" class="back" style="">Home</a>
+  {% if Status %}
+    <a class="back" href="{% url 'ReportStatus' 'Day' %}">Done</a>
+    {% else %}
+    <a class="back" href="{% url 'ReportStatus' 'Day' %}" style="color: red; background-color: black; border-color: black;">Pending</a>
+    {% endif %}
+  {% endblock %}
   {% block js %}
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
   <script src="{% static '/js/form.js' %}" async defer></script>
     <script>
         

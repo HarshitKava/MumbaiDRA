@@ -3,24 +3,10 @@
 {% block css %}
 <link rel="stylesheet" href="{% static '/css/Admin/Contractor.css' %}">
 {% endblock %}
-
 {% block content %}
 <center>
 <form action="" method="post" >
   {% csrf_token %}
-  <!-- <table>
-    <tr>
-      <td>Contractor Name:</td>
-      <td>{{form.ContractorName}}</td>
-    </tr>
-    <tr>
-      <td>Contractor Number:</td>
-      <td>{{form.ContractorNumber}}</td>
-    </tr>
-    <tr>
-      <td colspan="2" align="center" > <input type="submit" value="Add Contractor" class="submitbtn"></td>
-    </tr>
-  </table> -->
   <div class="input-container">
 		{{form.ContractorName}}
 		<label>Contractor Name</label>		
@@ -31,8 +17,23 @@
 	</div>
   <input type="submit" value="Add Contractor" id="submitbtn">
 </form>
+<div id="data">
+  <table>
+    <tr style="position: sticky; width:100%;top:0%;background-color: rgb(236, 255, 255);">
+      <th>Contractor Name</th>
+      <th>Contractor Number</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>{{i.ContractorName}}</td>
+      <td>{{i.ContractorNumber}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
 </center>
-<div style="z-index: 1;" id="navbar"><p id="date"></p><a href="{% url 'HomeAdmin' %}"class="bkbtn">Back</a></div>
+
+
 {% endblock %}
 {% block bkbtn %}<a href="{% url 'HomeAdmin' %}" class="back">Home</a>{% endblock %}
 {% block js %}

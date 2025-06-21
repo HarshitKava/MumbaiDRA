@@ -1,0 +1,43 @@
+{% extends 'LabourReport/NavbarLR.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/Admin/LabourToCont.css' %}">
+<style>
+  #data{
+        position: absolute;
+        top: 20%;
+        left: 67%;
+        font-size: 100%;
+        border:0px;
+        overflow-y:auto;
+        height: 50%;
+        color: #008837;
+        background-color: transparent;
+        animation: zoomout 0.5s forwards ;
+    }
+    #data td,th{
+        padding: 5px;
+    }
+    #data tr{
+        border-bottom: 1px solid #015099;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<form  method="post" >
+  {% csrf_token %}
+  <div style="margin-top: 1%;" class="input-container select">
+    <label>Contractor Name:</label><br>
+    {{form.ContractorName}}
+  </div>
+  <div style="margin-top: 1%; z-index:-1;" class="input-container select">
+    <label>Labour Category:</label><br>
+    {{form.LabourCategory}}
+  </div>
+  <input type="submit" class="submitbtn">
+</form>
+{% endblock %}
+{% block bkbtn %}<a href="{% url 'HomeAdmin' %}" class="back">Home</a>{% endblock %}
+{% block js %}
+<script src="{% static '/js/Admin/LabourToCont.js' %}"></script>
+{% endblock %}

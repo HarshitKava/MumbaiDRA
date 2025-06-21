@@ -6,9 +6,12 @@ from .models import *
 from django import forms
 
 class SiteEngDayForm(ModelForm):
+    # Ascending order of ContractorName
+    ContractorName = forms.ModelChoiceField(queryset=ContractorDetail.objects.order_by('ContractorName'))
+    # ContractorName = forms.ModelChoiceField(queryset=ContractorDetail.objects.all(), empty_label="Select Contractor")
     class Meta:
         model = SiteEngDay
-        fields = '__all__'
+        fields = '__all__' #['ContName','LaborCat','NoLabor','NoHelp']
         
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -41,10 +44,7 @@ class SiteEngDayForm(ModelForm):
         elif self.instance.pk:
             self.fields['CategoryName'].queryset = self.instance.LabourCategory.CategoryName.order_by('CategoryName')
         
-class WorkAreaForm(ModelForm):
-    class Meta:
-        model = WorkArea
-        fields = '__all__'
+        
 
 class SiteEngNightForm(ModelForm):
     class Meta:

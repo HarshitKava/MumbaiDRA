@@ -28,24 +28,24 @@
         <td>{{ i.StructureName }}</td>
         <td>{{ i.NoLabor }}</td>
         <td><a href="{% url 'DeleteSE' i.id  %}">Delete</a></td>
-        
+
       </tr>
       {% endfor %}
-      
-        
-    
+
+
+
     <form action="" id="form" method="POST" data-labour-url="{% url 'ajax_load_labour' %}" data-cat-url="{% url 'ajax_load_cat' %}">
       {% csrf_token %}
       <tr>
-        
+
       <div style="display: none;">
         {{form.Areaname}}
         <p id="ar_id" >{{Areaname_id}}</p>
       </div>
-      
-      
+
+
           <!-- <td></td> -->
-          
+
           <td>{{form.ContractorName}}</td>
           <td>{{form.LabourCategory}}</td>
           <td>{{form.CategoryName }}</td>
@@ -53,21 +53,21 @@
           <td>{{form.NoLabor}}</td>
         <td><input type="submit" name="submit" class="submitbtn"></td>
       </tr>
-        
-        
-        
-        
-            
-          
+
+
+
+
+
+
     </form>
   </table>
   {% endblock %}
   {% block bkbtn %}<a href="{% url 'HomeCLI' %}" class="back">Home</a>{% endblock %}
   {% block js %}
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
   <script src="{% static '/js/form.js' %}" async defer></script>
     <script>
-        
+
         $("#id_ContractorName").change(function(){
           const url=$("#form").attr("data-labour-url");
           const contractorId=$(this).val();
@@ -105,7 +105,7 @@
               }
             });
           }
-          
+
         })
 
     </script>

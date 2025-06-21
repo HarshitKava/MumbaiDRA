@@ -1,0 +1,165 @@
+{% extends 'LabourReport/NavbarLR.html' %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static '/css/SiteEngAddDayData.css' %}">
+  {% endblock %}
+  {% block LRLink %}<a class="nav-link active" href="{% url 'HomeSE' %}">Labour Report</a>{% endblock %}
+  {% block PRLink %}<a class="nav-link" href="{% url 'HomeSEProRepo' %}">Productivity Report</a>{% endblock %}
+  {% block content %}
+  <center>
+  <div id="displaydiv">
+
+  <table id='display' >
+      <thead>
+        <tr style="position: sticky; top:0px;">
+        <th>Contractor Name</th>
+        <th>Labour Category</th>
+        <th>Category of deployment</th>
+        <th>Structure</th>
+        <th>Deployment</th>
+        <th>Submit</th>
+      </tr>
+      </thead>
+    <form action="" id="form" method="POST" data-labour-url="{% url 'ajax_load_labour' %}" data-cat-url="{% url 'ajax_load_cat' %}">
+      {% csrf_token %}
+      <tr>
+        
+      <div style="display: none;">
+        <p id="recdata">{{dict}}</p>
+        {{form.Areaname}}
+        <p id="ar_id" >{{Areaname_id}}</p>
+      </div>
+          <td>{{form.ContractorName}}</td>
+          <td>{{form.LabourCategory}}</td>
+          <td>{{form.CategoryName }}</td>
+          <td>{{form.StructureName}}</td>
+          <td><input type="number" name="NoLabor" required id="id_NoLabor" value="{{labor}}"></td>
+        <td><input type="submit" name="submit" class="submitbtn"></td>
+      </tr>    
+    </form>
+  </table>
+</div>
+</center>
+  {% endblock %}
+  {% block bkbtn %}<a href="{% url 'HomeSE' %}" class="back">Home</a>{% endblock %}
+  {% block js %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script src="{% static '/js/form.js' %}" async defer></script>
+    <script>
+        
+        function ContractorNameChange(val){
+          const url=$("#form").attr("data-labour-url");
+          const contractorId=$("#id_ContractorName").val();
+          // remove all options from the category dropdown
+          $("#id_LabourCategory").find('option').not(':first').remove();
+          if(contractorId==""){
+            $("#id_LabourCategory").find('option').not(':first').remove();
+          }
+          else{
+              $.ajax({
+                url:url,
+                data:{
+                  'contractor_id':contractorId + " " + val,
+                //   'val':val
+                },
+                success:function(data){
+                  $("#id_LabourCategory").html(data);
+                }
+              });
+            }
+        }
+
+        function LabourCategoryChange(val){
+            // console.log(val);
+            const url=$("#form").attr("data-cat-url");
+            const contractorId=newarray[2];
+            console.log(contractorId);
+            if(contractorId==""){                
+                $("#id_CategoryName").find('option').not(':first').remove();
+            }
+            else{
+                $.ajax({
+                url:url,
+                data:{
+                    'contractor_id':contractorId+ " " + val,
+                },
+                success:function(data){
+                    console.log(data);
+                    $("#id_CategoryName").html(data);
+
+                }
+                });
+            }
+        }
+
+        // get ar_id
+        var ar_id = document.getElementById("ar_id").innerHTML;
+        document.getElementById("id_Areaname").value = ar_id;
+        // Get the dict from the <p> tag with id="recdata"
+        var dict = document.getElementById("recdata").innerHTML;
+        // Get all the values from the dict
+        var values = dict.split(",");
+        // iterate through the values 
+        var newarray = [];
+        for (let index = 0; index < values.length; index++) {
+            const element = values[index].split(" ");
+            // get the last element of the list
+            const lastElement = element[element.length - 1];
+            // add lastElement to new array
+            newarray.push(lastElement);
+        }
+        // select the option with the value of newarray
+        // Selected should be their in the option tag
+
+        $("#id_ContractorName").val(newarray[1]);
+        ContractorNameChange(newarray[2]);
+        LabourCategoryChange(newarray[3]);
+        $("#id_StructureName").val(newarray[4]);
+
+        // remove '}' from '13}'
+        //labor.value = parseInt(newarray[5].replace("}",""));
+        // set text in input field
+
+
+        $("#id_ContractorName").change(function(){
+          const url=$("#form").attr("data-labour-url");
+          const contractorId=$(this).val();
+          // remove all options from the category dropdown
+          $("#id_CategoryName").find('option').not(':first').remove();
+          if(contractorId==""){
+            $("#id_LabourCategory").find('option').not(':first').remove();
+          }
+          else{
+              $.ajax({
+                url:url,
+                data:{
+                  'contractor_id':contractorId
+                },
+                success:function(data){
+                  $("#id_LabourCategory").html(data);
+                }
+              });
+            }
+        })
+        $("#id_LabourCategory").change(function(){
+          const url=$("#form").attr("data-cat-url");
+          const contractorId=$(this).val();
+          if(contractorId==""){
+            $("#id_CategoryName").find('option').not(':first').remove();
+          }
+          else{
+            $.ajax({
+              url:url,
+              data:{
+                'contractor_id':contractorId
+              },
+              success:function(data){
+                $("#id_CategoryName").html(data);
+              }
+            });
+          }
+          
+        })
+
+    </script>
+  {% endblock %}

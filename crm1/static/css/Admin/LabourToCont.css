@@ -28,8 +28,8 @@ form{
     background-color: #a8a8a8;
 }
 .submitbtn{
-    margin-top: 0px; 
-    margin-left: 230px; 
+    margin-top: 0px;
+    margin-left: 230px;
     margin-right: 0px;
     position: absolute;
     font-size: 170%;
@@ -88,7 +88,8 @@ form{
         margin-top: 0%;
         margin-left: 0%;
         top: 37%;
-        left: 42%;
+        left: 40%;
+        width: 17vw;
     }
     .bkbtn:hover{
         color: #ffffff;
@@ -112,23 +113,60 @@ form{
         color:#008837;
         transition: all 0.5s ease-in-out;
     }
-    .input-container select{ 
+    .input-container select{
         display: block;
           border:0;
           width: 100%;
-          border-bottom:2px solid #015099;  
+          border-bottom:2px solid #015099;
           background:transparent;
           padding:8px 0 5px 0;
           box-shadow: none;
           font-size:16px;
           color:#015099;
           border-radius: 0px;
+          /* text-align: left; */
         }
     .input-container.select select option{
         color: #008837;
     }
     .input-container.select select:hover{
         animation: hover forwards 0.5s;
+    }
+    .input-container{
+        position:relative;
+        margin-top: 3%;
+        width: 130%;
+    }
+    .input-container label{
+        position:absolute;
+        top:0px;
+        left:0px;
+        font-size:150%;
+        color:#008837;
+        transition: all 0.5s ease-in-out;
+    }
+    .input-container input{
+    display: inline;
+      border:0;
+      border-radius: 0px;
+      border-bottom:2px solid #015099;
+      background:transparent;
+      padding:8px 0 5px 0;
+      width: 80%;
+      font-size:16px;
+      color:#015099;
+    }
+
+    .input-container input:focus{
+        border:none;
+        outline:none;
+        border-bottom:2px solid #015099;
+    }
+    .input-container input:focus ~ label,
+    .input-container input:valid ~ label,
+    .input-container label:hover ~ label{
+        top:-17px;
+        font-size:20px;
     }
     @keyframes hover {
         100%{
@@ -148,7 +186,7 @@ form{
     }
     .submitbtn:hover{
         animation: zoomin 0.5s forwards ;
-        
+
     }
     @keyframes zoomin {
         100% {
@@ -180,5 +218,23 @@ form{
         width: 100%;
         font-size: 200%;
         background: #a8a8a8;
+    }
+    #data{
+        position: absolute;
+        top: 20%;
+        left: 67%;
+        font-size: 100%;
+        border:0px;
+        overflow-y:auto;
+        height: 50%;
+        color: #008837;
+        background-color: transparent;
+        animation: zoomout 0.5s forwards ;
+    }
+    #data td,th{
+        padding: 5px;
+    }
+    #data tr{
+        border-bottom: 1px solid #015099;
     }
 }

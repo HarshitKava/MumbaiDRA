@@ -35,8 +35,8 @@ body
 }
 .siteReport{
     position: absolute;
-    margin-top: 50%;
-    margin-left: 26%;
+    top: -30%;
+    left: 0%;
     -webkit-border-radius: 4;
     -moz-border-radius: 4;
     border-radius: 4px;
@@ -56,8 +56,8 @@ body
 }
 .finalReport{
     position: absolute;
-    margin-top: 100%;
-    margin-left: 24%;
+    top: -30%;
+    left: -20%;
     -webkit-border-radius: 4;
     -moz-border-radius: 4;
     border-radius: 4px;
@@ -132,10 +132,10 @@ body
     body
     {
         background-image: url(https://www.urcindia.com/img/new_logo.svg);
-        background-repeat:no-repeat;
-        background-position: 53% -150%;
-        background-size: 20%;
-        height: 0%;
+        background-repeat: no-repeat;
+        background-position: 4% 10%;
+        background-size: 12%;
+        height: 100vh;
     }
     .namebar{
         overflow: hidden;
@@ -166,8 +166,8 @@ body
     }
     .siteReport{
         position: absolute;
-        margin-top: 20%;
-        margin-left: 19%;
+        top: 10%;
+        left: 20%;
         -webkit-border-radius: 4;
         -moz-border-radius: 4;
         border-radius: 4px;
@@ -188,8 +188,8 @@ body
     }
     .finalReport{
         position: absolute;
-        margin-top: 20%;
-        margin-left: 70%;
+        top: 10%;
+        left: 40%;
         -webkit-border-radius: 4;
         -moz-border-radius: 4;
         border-radius: 4px;
@@ -251,7 +251,7 @@ body
     }
 
     .topnav a.icon
-    
+
 
     /* Add a grey background color on mouse-over */
     .topnav a:hover {
@@ -290,5 +290,5 @@ body
       box-shadow: 0 0 10px 0 #015099;
   }
 }
-  
+
 }
