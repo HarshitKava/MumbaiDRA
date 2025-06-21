@@ -358,13 +358,15 @@ def HomeAdmin(request):
             # print(i)
             df.loc[len(df)] = {'username':i.username,'id':i.id,'email':i.email,'group':i.groups.all()[0]}
 
-    Area_data=Area.objects.all().order_by('AreaName')
-    # Convert to Dataframe
-    df1=pd.DataFrame(Area_data.values())
-    df1 = pd.DataFrame(columns=['AreaName','Username'])
+    Area_data=Area.objects.all()
+    # Create Dataframe for Area
+    df_area = pd.DataFrame(columns=['AreaName','Username'])
+    for i in Area_data:
+        df_area.loc[len(df_area)] = {'AreaName':i.AreaName,'Username':i.Username}
+
     # df1 = df1[['AreaName','Username']]
     # Merge Dataframes
-    df2 = pd.merge(df,df1,how='left',left_on='username',right_on='Username')
+    df2 = pd.merge(df,df_area,how='left',left_on='username',right_on='Username')
     # drop Username column
     df2 = df2.drop(['Username'],axis=1)
     return render(request,'LabourReport/Admin/HomeAd.html',{'data':df2})

@@ -24,7 +24,7 @@ class Area(models.Model):
     AreaName=models.ForeignKey(WorkArea, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return self.AreaName
+        return self.Username
     
 
 class ContractorDetail(models.Model):
